@@ -49,7 +49,9 @@ export function PromotionCarousel() {
   };
 
   const section = sections[activeIndex];
+  if (!section) return null;
   const content = promotionCopy[section.id];
+  if (!content) return null;
 
   return (
     <section
