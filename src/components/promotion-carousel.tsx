@@ -66,7 +66,7 @@ export function PromotionCarousel() {
       }}
     >
       <div className="relative mx-auto max-w-7xl overflow-hidden border-y border-taupe/10 py-8 sm:py-12">
-        <div key={section.id} className="grid animate-fade-in items-center gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)] lg:gap-16">
+        <div key={section.id} className="grid animate-fade-in items-center gap-10 motion-reduce:animate-none md:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)] lg:gap-16">
           <div className="relative mx-auto grid w-full max-w-3xl grid-cols-3 items-center gap-2 px-9 sm:gap-4 sm:px-12">
             {section.products.slice(0, 3).map((product, index) => (
               <div
