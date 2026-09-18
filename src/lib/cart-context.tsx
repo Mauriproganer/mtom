@@ -28,6 +28,7 @@ export function formatPrice(value: number) {
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     try {
@@ -36,11 +37,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     } catch {
       window.sessionStorage.removeItem("mtom-cart");
     }
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
+    if (!hydrated) return;
     window.sessionStorage.setItem("mtom-cart", JSON.stringify(items));
-  }, [items]);
+  }, [hydrated, items]);
 
   const value = useMemo<CartContextValue>(() => ({
     items,

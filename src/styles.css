@@ -36,6 +36,7 @@
   --color-taupe: var(--taupe);
   --color-gold: var(--gold);
   --color-stone-muted: var(--stone-muted);
+  --color-nude: var(--nude);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -63,6 +64,7 @@
   --taupe: oklch(0.295 0.014 75);
   --gold: oklch(0.627 0.057 77);
   --stone-muted: oklch(0.921 0.009 80);
+  --nude: oklch(0.938 0.021 55);
   --background: oklch(0.982 0.005 95);
   --foreground: oklch(0.295 0.014 75);
   --card: oklch(0.982 0.005 95);
@@ -102,6 +104,7 @@
   --taupe: oklch(0.95 0.008 90);
   --gold: oklch(0.7 0.06 78);
   --stone-muted: oklch(0.28 0.012 75);
+  --nude: oklch(0.3 0.018 55);
   --background: oklch(0.2 0.01 75);
   --foreground: oklch(0.95 0.008 90);
   --card: oklch(0.24 0.012 75);
@@ -134,6 +137,15 @@
   --sidebar-accent-foreground: oklch(0.95 0.008 90);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.7 0.06 78);
+}
+
+@utility bg-hero-wash {
+  background:
+    linear-gradient(90deg, color-mix(in oklch, var(--creme) 96%, transparent) 0%, color-mix(in oklch, var(--nude) 86%, transparent) 48%, color-mix(in oklch, var(--stone-muted) 42%, transparent) 100%);
+}
+
+@utility shadow-soft {
+  box-shadow: 0 18px 45px color-mix(in oklch, var(--taupe) 13%, transparent);
 }
 
 @layer base {

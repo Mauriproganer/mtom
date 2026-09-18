@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PromotionCarousel } from "@/components/promotion-carousel";
+import { BeautyHero } from "@/components/beauty-hero";
+import { CartPanel } from "@/components/cart-panel";
+import { ProductCatalog } from "@/components/product-catalog";
 import { sections } from "@/lib/products";
 import logoAsset from "@/assets/logo.png.asset.json";
 
@@ -54,44 +57,10 @@ function Index() {
         </div>
       </nav>
 
+      <BeautyHero />
       <PromotionCarousel />
-
-      {/* Product sections */}
-      <main className="space-y-28 pb-28">
-        {sections.map((section) => (
-          <section key={section.id} id={section.id} className="mx-auto max-w-7xl scroll-mt-24 px-6">
-            <div className="mb-12 flex items-baseline justify-between border-b border-taupe/10 pb-4">
-              <h2 className="font-serif text-3xl italic">{section.title}</h2>
-              <span className="text-[10px] uppercase tracking-widest opacity-50">
-                {section.number}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-5 xl:grid-cols-7">
-              {section.products.map((product) => (
-                <article key={product.name} className="group">
-                  <div className="mb-4 aspect-[4/5] w-full overflow-hidden rounded-md bg-stone-muted outline-1 -outline-offset-1 outline-taupe/10">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      loading="lazy"
-                      width={800}
-                      height={1008}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
-                  </div>
-                   <h3 className="mb-1 text-xs font-medium uppercase tracking-wider">
-                    {product.name}
-                  </h3>
-                  <p className="mb-3 max-w-[35ch] text-xs leading-relaxed text-taupe/60">
-                    {product.description}
-                  </p>
-                  <p className="font-serif text-sm italic text-gold">{product.price}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-        ))}
-      </main>
+      <ProductCatalog />
+      <CartPanel />
 
       {/* Footer */}
       <footer className="bg-taupe px-6 pb-12 pt-24 text-stone-muted">
