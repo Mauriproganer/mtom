@@ -1,12 +1,32 @@
-import { Check, Plus } from "lucide-react";
-import { useState } from "react";
+import { Check, Plus, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart-context";
-import { sections } from "@/lib/products";
+import { sections, type Product } from "@/lib/products";
+
+type SelectedProduct = {
+  product: Product;
+  category: string;
+};
 
 export function ProductCatalog() {
   const { addItem } = useCart();
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
+  const [selected, setSelected] = useState<SelectedProduct | null>(null);
+
+  useEffect(() => {
+    if (!selected) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelected(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [selected]);
 
   const add = (product: (typeof sections)[number]["products"][number], category: string) => {
     addItem(product, category);
@@ -30,10 +50,17 @@ export function ProductCatalog() {
               const featured = index === (sectionIndex % 2 === 0 ? 0 : 3);
               return (
                 <article key={product.name} className={`group flex flex-col ${featured ? "lg:col-span-6 lg:row-span-2" : "lg:col-span-3"}`}>
-                  <div className={`relative mb-4 overflow-hidden rounded-md bg-stone-muted shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-soft motion-reduce:transform-none ${featured ? "aspect-[4/5] lg:aspect-[5/4]" : "aspect-[4/5]"}`}>
+                   <Button
+                     type="button"
+                     variant="ghost"
+                     aria-label={`Ver información de ${product.name}`}
+                     onClick={() => setSelected({ product, category: section.nav })}
+                     className={`relative mb-4 block h-auto w-full overflow-hidden rounded-md bg-stone-muted p-0 shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-soft hover:bg-stone-muted motion-reduce:transform-none ${featured ? "aspect-[4/5] lg:aspect-[5/4]" : "aspect-[4/5]"}`}
+                   >
                     <img src={product.image} alt={product.name} loading="lazy" width={800} height={1008} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:transform-none" />
                     <span className="absolute left-3 top-3 bg-creme/90 px-2.5 py-1 text-[9px] uppercase tracking-[0.16em] backdrop-blur-sm">{section.nav}</span>
-                  </div>
+                     <span className="absolute inset-x-0 bottom-0 translate-y-full bg-taupe/85 py-3 text-[9px] uppercase tracking-[0.16em] text-creme transition-transform duration-300 group-hover:translate-y-0 group-focus-within:translate-y-0">Ver producto</span>
+                   </Button>
                   <div className="flex flex-1 flex-col">
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-xs font-medium uppercase tracking-wider">{product.name}</h3>
@@ -50,6 +77,27 @@ export function ProductCatalog() {
           </div>
         </section>
       ))}
+      {selected ? (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-taupe/70 p-4 backdrop-blur-sm" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setSelected(null)}>
+          <section role="dialog" aria-modal="true" aria-labelledby="product-detail-title" className="relative grid max-h-[92svh] w-full max-w-4xl overflow-y-auto bg-creme shadow-soft md:grid-cols-2">
+            <Button type="button" variant="ghost" size="icon" aria-label="Cerrar información del producto" onClick={() => setSelected(null)} className="absolute right-3 top-3 z-10 rounded-full bg-creme/90 text-taupe hover:bg-creme"><X /></Button>
+            <img src={selected.product.image} alt={selected.product.name} width={800} height={1008} className="aspect-[4/3] h-full w-full object-cover md:aspect-auto md:min-h-[34rem]" />
+            <div className="flex flex-col justify-center p-7 sm:p-10">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-gold">Colección {selected.category}</p>
+              <h2 id="product-detail-title" className="mt-4 font-serif text-4xl leading-none sm:text-5xl">{selected.product.name}</h2>
+              <p className="mt-6 text-sm leading-7 text-taupe/65">{selected.product.description}</p>
+              <div className="my-7 h-px bg-taupe/10" />
+              <div className="flex items-center justify-between gap-5">
+                <span className="text-[10px] uppercase tracking-[0.16em] text-taupe/50">Precio</span>
+                <span className="font-serif text-3xl italic text-gold">{selected.product.price}</span>
+              </div>
+              <Button className="mt-7 h-12 rounded-none bg-taupe uppercase tracking-[0.14em] text-creme hover:bg-gold" onClick={() => add(selected.product, selected.category)}>
+                {recentlyAdded === selected.product.name ? <><Check /> Añadido</> : <><Plus /> Añadir al carrito</>}
+              </Button>
+            </div>
+          </section>
+        </div>
+      ) : null}
     </main>
   );
 }
