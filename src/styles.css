@@ -53,6 +53,7 @@
 }
 
 @theme {
+  --font-display: "Italiana", "Cormorant Garamond", Georgia, serif;
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
