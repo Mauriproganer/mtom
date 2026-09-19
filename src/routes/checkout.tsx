@@ -106,9 +106,9 @@ function CheckoutPage() {
                 role="checkbox"
                 aria-checked={accepted}
                 onClick={() => setAccepted((current) => !current)}
-                className="grid size-4 shrink-0 place-content-center rounded-sm border border-taupe bg-creme text-creme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                className={`grid size-4 shrink-0 place-content-center rounded-sm border border-taupe focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${accepted ? "bg-taupe text-creme" : "bg-creme text-taupe"}`}
               >
-                {accepted ? <Check className="size-3.5 bg-taupe" aria-hidden="true" /> : null}
+                {accepted ? <Check className="size-3.5" aria-hidden="true" /> : null}
               </button>
               <Label htmlFor="consent" className="text-xs font-normal leading-relaxed text-taupe/65">Confirmo que usaré datos ficticios y entiendo que no se realizará ningún cobro.</Label>
             </div>
