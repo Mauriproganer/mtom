@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, CheckCircle2, CreditCard, LockKeyhole, Minus, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, Check, CheckCircle2, CreditCard, LockKeyhole, Minus, Plus, Trash2 } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatPrice, priceToNumber, useCart } from "@/lib/cart-context";
@@ -101,7 +100,16 @@ function CheckoutPage() {
             </fieldset>
 
             <div className="flex items-start gap-3">
-              <Checkbox id="consent" checked={accepted} onCheckedChange={(value) => setAccepted(value === true)} />
+              <button
+                id="consent"
+                type="button"
+                role="checkbox"
+                aria-checked={accepted}
+                onClick={() => setAccepted((current) => !current)}
+                className="grid size-4 shrink-0 place-content-center rounded-sm border border-taupe bg-creme text-creme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+              >
+                {accepted ? <Check className="size-3.5 bg-taupe" aria-hidden="true" /> : null}
+              </button>
               <Label htmlFor="consent" className="text-xs font-normal leading-relaxed text-taupe/65">Confirmo que usaré datos ficticios y entiendo que no se realizará ningún cobro.</Label>
             </div>
           </form>
