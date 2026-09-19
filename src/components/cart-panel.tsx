@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { formatPrice, priceToNumber, useCart } from "@/lib/cart-context";
 
 export function CartPanel() {
@@ -10,7 +10,7 @@ export function CartPanel() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button aria-label={`Abrir carrito, ${itemCount} unidades`} className="fixed bottom-5 right-5 z-40 h-14 rounded-full bg-taupe px-5 text-creme shadow-soft hover:bg-gold sm:bottom-7 sm:right-7">
+        <Button aria-label={`Abrir carrito, ${itemCount} ${itemCount === 1 ? "unidad" : "unidades"}`} className="fixed bottom-5 right-5 z-40 h-14 rounded-full bg-taupe px-5 text-creme shadow-soft hover:bg-gold sm:bottom-7 sm:right-7">
           <ShoppingBag aria-hidden="true" />
           <span className="text-xs uppercase tracking-[0.12em]">Carrito</span>
           {itemCount > 0 && <span className="grid size-6 place-items-center rounded-full bg-creme text-xs text-taupe">{itemCount}</span>}
@@ -53,7 +53,9 @@ export function CartPanel() {
                 <span className="text-xs uppercase tracking-[0.15em]">Subtotal</span>
                 <strong className="font-serif text-2xl font-normal">{formatPrice(subtotal)}</strong>
               </div>
-              <Button asChild className="h-12 w-full rounded-none bg-taupe uppercase tracking-[0.15em] text-creme hover:bg-gold"><Link to="/checkout">Finalizar compra</Link></Button>
+              <SheetClose asChild>
+                <Button asChild className="h-12 w-full rounded-none bg-taupe uppercase tracking-[0.15em] text-creme hover:bg-gold"><Link to="/checkout">Finalizar compra</Link></Button>
+              </SheetClose>
               <Button variant="ghost" className="mt-2 w-full text-xs text-taupe/55" onClick={clearCart}>Vaciar carrito</Button>
             </div>
           </>
