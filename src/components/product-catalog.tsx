@@ -44,19 +44,21 @@ export function ProductCatalog() {
               <p className="mb-2 text-[10px] uppercase tracking-[0.2em] text-gold">Colección {section.number}</p>
               <h2 className="font-serif text-4xl italic sm:text-5xl">{section.title}</h2>
             </div>
-            <span className="hidden text-xs text-taupe/45 sm:block">7 fórmulas esenciales</span>
+            <span className="hidden text-xs text-taupe/45 sm:block">
+              {section.products.length} fórmulas esenciales
+            </span>
           </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-6 lg:grid-cols-12">
+          <div className="grid grid-cols-2 items-start gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-6 lg:grid-cols-12">
             {section.products.map((product, index) => {
-              const featured = index === (sectionIndex % 2 === 0 ? 0 : 3);
+              const featured = index === (sectionIndex % 2 === 0 ? 0 : 2);
               return (
-                <article key={product.name} className={`group flex flex-col ${featured ? "lg:col-span-6 lg:row-span-2" : "lg:col-span-3"}`}>
+                <article key={product.name} className={`group flex min-w-0 flex-col ${featured ? "col-span-2 sm:col-span-2 lg:col-span-6" : "sm:col-span-1 lg:col-span-3"}`}>
                    <Button
                      type="button"
                      variant="ghost"
                      aria-label={`Ver información de ${product.name}`}
                      onClick={() => setSelected({ product, category: section.nav })}
-                     className={`relative mb-4 block h-auto w-full overflow-hidden rounded-md bg-stone-muted p-0 shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-soft hover:bg-stone-muted motion-reduce:transform-none ${featured ? "aspect-[4/5] lg:aspect-[5/4]" : "aspect-[4/5]"}`}
+                      className={`relative mb-4 block h-auto w-full overflow-hidden rounded-md bg-stone-muted p-0 shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-soft hover:bg-stone-muted motion-reduce:transform-none ${featured ? "aspect-[3/2] lg:aspect-[5/4]" : "aspect-[4/5]"}`}
                    >
                     <img src={product.image} alt={product.name} loading="lazy" width={800} height={1008} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:transform-none" />
                     <span className="absolute left-3 top-3 bg-creme/90 px-2.5 py-1 text-[9px] uppercase tracking-[0.16em] backdrop-blur-sm">{section.nav}</span>
