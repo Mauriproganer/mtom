@@ -45,8 +45,9 @@ function Index() {
               </a>
             ))}
           </div>
-          <a href="#" className="flex flex-none items-center" aria-label="M to M Estética">
+          <a href="#" className="flex flex-none items-center gap-3" aria-label="M to M Estética">
             <img src={logoAsset.url} alt="M to M Estética" className="h-14 w-14 object-contain" />
+            <span className="font-display text-2xl tracking-[0.08em]">M TO M</span>
           </a>
           <div className="hidden flex-1 justify-end gap-8 text-[11px] font-medium uppercase tracking-[0.2em] md:flex">
             {rightLinks.map((s) => (

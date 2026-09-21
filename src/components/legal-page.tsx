@@ -16,8 +16,9 @@ export function LegalPage({
     <div className="flex min-h-screen flex-col bg-creme font-sans text-taupe selection:bg-gold/20">
       <nav className="sticky top-0 z-50 border-b border-taupe/5 bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link to="/" aria-label="Volver a M to M Estética" className="flex items-center">
+          <Link to="/" aria-label="Volver a M to M Estética" className="flex items-center gap-3">
             <img src={logoAsset.url} alt="M to M Estética" className="h-14 w-14 object-contain" />
+            <span className="font-display text-2xl tracking-[0.08em]">M TO M</span>
           </Link>
           <Link
             to="/"
