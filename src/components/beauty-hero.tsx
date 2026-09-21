@@ -23,7 +23,9 @@ export function BeautyHero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <div className="max-w-xl text-center md:text-left">
           <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-gold">Estética mediterránea</p>
-          <h1 className="font-display text-7xl leading-[0.9] sm:text-8xl lg:text-[9rem]">M TO M</h1>
+          <h1 className="font-display text-7xl leading-[0.9] sm:text-8xl lg:text-[9rem]">
+            M <span className="font-serif italic tracking-normal text-[0.72em] align-baseline">TO</span> M
+          </h1>
           <p className="mt-8 max-w-[42ch] text-pretty text-sm leading-relaxed text-taupe/70 sm:text-base">
             Belleza consciente, fórmulas botánicas y rituales inspirados en la luz del Mediterráneo.
           </p>
