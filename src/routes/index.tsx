@@ -3,6 +3,7 @@ import { PromotionCarousel } from "@/components/promotion-carousel";
 import { BeautyHero } from "@/components/beauty-hero";
 import { CartPanel } from "@/components/cart-panel";
 import { ProductCatalog } from "@/components/product-catalog";
+import { SiteFooter } from "@/components/site-footer";
 import { sections } from "@/lib/products";
 import logoAsset from "@/assets/logo.png.asset.json";
 
