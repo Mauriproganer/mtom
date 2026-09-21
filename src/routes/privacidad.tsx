@@ -27,7 +27,7 @@ function Privacidad() {
     <LegalPage title="Política de Privacidad" updated="20 de septiembre de 2026">
       <p className="text-sm leading-relaxed text-taupe/80">
         En M to M Estética respetamos su privacidad y tratamos sus datos personales con la misma
-        dedicação con la que formulamos nuestros productos. Esta política explica qué datos
+        dedicación con la que formulamos nuestros productos. Esta política explica qué datos
         recogemos, con qué finalidad y qué derechos puede ejercer en todo momento.
       </p>
 
@@ -78,7 +78,7 @@ function Privacidad() {
       <LegalSection title="5. Destinatarios">
         <p>
           No cedemos sus datos a terceros salvo obligación legal o cuando sea imprescindible para
-          entregár su pedido (por ejemplo, la empresa de transporte que realiza la entrega).
+          entregar su pedido (por ejemplo, la empresa de transporte que realiza la entrega).
           Trabajamos únicamente con encargados que ofrecen garantías suficientes conforme al RGPD.
         </p>
       </LegalSection>
@@ -95,7 +95,7 @@ function Privacidad() {
       <LegalSection title="7. Seguridad">
         <p>
           Aplicamos medidas técnicas y organizativas apropiadas para proteger sus datos contra el
-          acceso no autorizado, la pérdida o la alteración, incluida la cifrado de las comunicaciones
+          acceso no autorizado, la pérdida o la alteración, incluido el cifrado de las comunicaciones
           y el acceso restringido a la información personal.
         </p>
       </LegalSection>

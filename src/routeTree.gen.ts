@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as EnviosYDevolucionesRouteImport } from './routes/envios-y-devoluciones'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
+import { Route as TerminosRouteImport } from './routes/terminos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +25,65 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnviosYDevolucionesRoute = EnviosYDevolucionesRouteImport.update({
+  id: '/envios-y-devoluciones',
+  path: '/envios-y-devoluciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminosRoute = TerminosRouteImport.update({
+  id: '/terminos',
+  path: '/terminos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
+  '/envios-y-devoluciones': typeof EnviosYDevolucionesRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/terminos': typeof TerminosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
+  '/envios-y-devoluciones': typeof EnviosYDevolucionesRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/terminos': typeof TerminosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
+  '/envios-y-devoluciones': typeof EnviosYDevolucionesRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/terminos': typeof TerminosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/checkout'
+  fullPaths:
+    '/' | '/checkout' | '/envios-y-devoluciones' | '/privacidad' | '/terminos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/checkout'
-  id: '__root__' | '/' | '/checkout'
+  to: '/' | '/checkout' | '/envios-y-devoluciones' | '/privacidad' | '/terminos'
+  id:
+    | '__root__'
+    | '/'
+    | '/checkout'
+    | '/envios-y-devoluciones'
+    | '/privacidad'
+    | '/terminos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CheckoutRoute: typeof CheckoutRoute
+  EnviosYDevolucionesRoute: typeof EnviosYDevolucionesRoute
+  PrivacidadRoute: typeof PrivacidadRoute
+  TerminosRoute: typeof TerminosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +102,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/envios-y-devoluciones': {
+      id: '/envios-y-devoluciones'
+      path: '/envios-y-devoluciones'
+      fullPath: '/envios-y-devoluciones'
+      preLoaderRoute: typeof EnviosYDevolucionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminos': {
+      id: '/terminos'
+      path: '/terminos'
+      fullPath: '/terminos'
+      preLoaderRoute: typeof TerminosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CheckoutRoute: CheckoutRoute,
+  EnviosYDevolucionesRoute: EnviosYDevolucionesRoute,
+  PrivacidadRoute: PrivacidadRoute,
+  TerminosRoute: TerminosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
