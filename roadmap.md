@@ -9,3 +9,4 @@
 - [x] Renovar la tipografía de “M TO M” en la portada.
 - [x] Completar las 28 fichas con ingredientes, beneficios, modo de uso, contenido y recomendación.
 - [x] Compactar la distribución del catálogo para eliminar huecos visuales.
+- [x] Páginas legales: /privacidad, /terminos y /envios-y-devoluciones con footer compartido
