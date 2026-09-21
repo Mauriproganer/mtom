@@ -55,10 +55,7 @@ function CheckoutPage() {
       <header className="border-b border-taupe/10 px-6">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
           <Button asChild variant="ghost" className="px-0 text-xs uppercase tracking-[0.12em]"><Link to="/"><ArrowLeft /> Volver</Link></Button>
-          <span className="flex items-center gap-3">
             <img src={logoAsset.url} alt="M to M Estética" className="size-14 object-contain" />
-            <span className="font-display text-2xl tracking-[0.08em]">M TO M</span>
-          </span>
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-taupe/50"><LockKeyhole className="size-3.5" /> Seguro</div>
         </div>
       </header>
