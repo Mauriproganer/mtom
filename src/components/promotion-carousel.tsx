@@ -36,7 +36,7 @@ export function PromotionCarousel() {
     if (!paused) {
       intervalRef.current = setInterval(() => {
         setActiveIndex((current) => (current + 1) % sections.length);
-      }, 4000);
+      }, 8000);
     }
   }, [paused]);
 
