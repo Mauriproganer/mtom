@@ -11,3 +11,4 @@
 - [x] Compactar la distribución del catálogo para eliminar huecos visuales.
 - [x] Páginas legales: /privacidad, /terminos y /envios-y-devoluciones con footer compartido
 - [x] Nav: añadir wordmark M TO M junto al logo (portada, legales y checkout)
+- [x] Quinta colección Dental con 7 productos, fichas y promoción en carrusel

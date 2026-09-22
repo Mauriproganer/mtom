@@ -26,6 +26,13 @@ import corporal4 from "@/assets/corporal-4.jpg";
 import corporal5 from "@/assets/corporal-5.jpg";
 import corporal6 from "@/assets/corporal-6.jpg";
 import corporal7 from "@/assets/corporal-7.jpg";
+import dental1 from "@/assets/dental-1.jpg";
+import dental2 from "@/assets/dental-2.jpg";
+import dental3 from "@/assets/dental-3.jpg";
+import dental4 from "@/assets/dental-4.jpg";
+import dental5 from "@/assets/dental-5.jpg";
+import dental6 from "@/assets/dental-6.jpg";
+import dental7 from "@/assets/dental-7.jpg";
 
 export interface Product {
   name: string;
@@ -240,6 +247,56 @@ export const sections: Section[] = [
         description: "Absorción rápida con agua de rosas.",
         price: "42,00€",
         image: corporal7,
+      },
+    ],
+  },
+  {
+    id: "dental",
+    nav: "Dental",
+    title: "Sonrisa Mediterránea",
+    number: "05 / 05",
+    products: [
+      {
+        name: "Pasta Blanqueante",
+        description: "Blanqueamiento natural con enzimas de papaya.",
+        price: "16,00€",
+        image: dental1,
+      },
+      {
+        name: "Enjuague de Salvia",
+        description: "Aliento fresco con aceites esenciales botánicos.",
+        price: "19,00€",
+        image: dental2,
+      },
+      {
+        name: "Cepillo de Bambú",
+        description: "Filamentos suaves y mango biodegradable.",
+        price: "9,00€",
+        image: dental3,
+      },
+      {
+        name: "Tiras Blanqueadoras",
+        description: "Sonrisa luminosa en 14 días, sin sensibilidad.",
+        price: "34,00€",
+        image: dental4,
+      },
+      {
+        name: "Hilo Dental de Menta",
+        description: "Seda natural encerada con cera de candelilla.",
+        price: "8,00€",
+        image: dental5,
+      },
+      {
+        name: "Sérum de Encías",
+        description: "Cuidado intensivo con neem y ácido hialurónico.",
+        price: "27,00€",
+        image: dental6,
+      },
+      {
+        name: "Polvo de Carbón",
+        description: "Limpieza profunda con carbón activado de coco.",
+        price: "14,00€",
+        image: dental7,
       },
     ],
   },

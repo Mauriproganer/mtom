@@ -20,6 +20,10 @@ const promotionCopy: Record<string, { title: string; copy: string }> = {
     title: "Convierte el cuidado corporal en un ritual",
     copy: "Un momento de bienestar inspirado en aromas, plantas y minerales de nuestras costas.",
   },
+  dental: {
+    title: "Descubre la nueva colección dental",
+    copy: "Esenciales naturales para una sonrisa luminosa: blanqueo suave, aliento fresco y encías cuidadas.",
+  },
 };
 
 export function PromotionCarousel() {
