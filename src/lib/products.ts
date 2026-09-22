@@ -250,4 +250,54 @@ export const sections: Section[] = [
       },
     ],
   },
+  {
+    id: "dental",
+    nav: "Dental",
+    title: "Sonrisa Mediterránea",
+    number: "05 / 05",
+    products: [
+      {
+        name: "Pasta Blanqueante",
+        description: "Blanqueamiento natural con enzimas de papaya.",
+        price: "16,00€",
+        image: dental1,
+      },
+      {
+        name: "Enjuague de Salvia",
+        description: "Aliento fresco con aceites esenciales botánicos.",
+        price: "19,00€",
+        image: dental2,
+      },
+      {
+        name: "Cepillo de Bambú",
+        description: "Filamentos suaves y mango biodegradable.",
+        price: "9,00€",
+        image: dental3,
+      },
+      {
+        name: "Tiras Blanqueadoras",
+        description: "Sonrisa luminosa en 14 días, sin sensibilidad.",
+        price: "34,00€",
+        image: dental4,
+      },
+      {
+        name: "Hilo Dental de Menta",
+        description: "Seda natural encerada con cera de candelilla.",
+        price: "8,00€",
+        image: dental5,
+      },
+      {
+        name: "Sérum de Encías",
+        description: "Cuidado intensivo con neem y ácido hialurónico.",
+        price: "27,00€",
+        image: dental6,
+      },
+      {
+        name: "Polvo de Carbón",
+        description: "Limpieza profunda con carbón activado de coco.",
+        price: "14,00€",
+        image: dental7,
+      },
+    ],
+  },
 ];
