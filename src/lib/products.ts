@@ -26,6 +26,13 @@ import corporal4 from "@/assets/corporal-4.jpg";
 import corporal5 from "@/assets/corporal-5.jpg";
 import corporal6 from "@/assets/corporal-6.jpg";
 import corporal7 from "@/assets/corporal-7.jpg";
+import dental1 from "@/assets/dental-1.jpg";
+import dental2 from "@/assets/dental-2.jpg";
+import dental3 from "@/assets/dental-3.jpg";
+import dental4 from "@/assets/dental-4.jpg";
+import dental5 from "@/assets/dental-5.jpg";
+import dental6 from "@/assets/dental-6.jpg";
+import dental7 from "@/assets/dental-7.jpg";
 
 export interface Product {
   name: string;
