@@ -62,7 +62,41 @@ function Index() {
       <PromotionCarousel />
       <ProductCatalog />
       <CartPanel />
-<div className="flex justify-center gap-10 px-6 py-12">
+{/* RESEÑAS */}
+<section className="max-w-6xl mx-auto px-6 py-16">
+  <h2 className="text-2xl font-semibold mb-8 text-center">
+    Opiniones de nuestros clientes
+  </h2>
+
+  <div className="grid md:grid-cols-3 gap-6">
+    
+    <div className="bg-white shadow-md p-5 rounded-xl">
+      <p className="text-yellow-500">★★★★★</p>
+      <p className="mt-2 text-sm">
+        "Muy buena atención y productos de calidad. Volveré seguro."
+      </p>
+      <p className="mt-3 text-xs text-gray-500">– Laura M.</p>
+    </div>
+
+    <div className="bg-white shadow-md p-5 rounded-xl">
+      <p className="text-yellow-500">★★★★★</p>
+      <p className="mt-2 text-sm">
+        "El local es precioso y el trato increíble."
+      </p>
+      <p className="mt-3 text-xs text-gray-500">– Carlos R.</p>
+    </div>
+
+    <div className="bg-white shadow-md p-5 rounded-xl">
+      <p className="text-yellow-500">★★★★☆</p>
+      <p className="mt-2 text-sm">
+        "Buenos precios y ambiente relajante."
+      </p>
+      <p className="mt-3 text-xs text-gray-500">– Ana P.</p>
+    </div>
+
+  </div>
+</section>
+      <div className="flex justify-center gap-10 px-6 py-12">
 
   <iframe
     src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
