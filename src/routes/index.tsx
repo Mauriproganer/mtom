@@ -62,14 +62,11 @@ function Index() {
       <PromotionCarousel />
       <ProductCatalog />
       <CartPanel />
+<div className="flex justify-center gap-10 px-6 py-12">
 
-{/* UBICACIÓN */}
-<div className="flex flex-wrap justify-center items-center gap-8 px-6 py-12">
-  
   <iframe
-    src="https://www.google.com/maps?q=Portal+de+l'Angel+40+Barcelona&output=embed"
-    className="w-[500px] h-[300px] rounded-xl border-0"
-    loading="lazy"
+    src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
+    className="w-[500px] h-[300px] rounded-xl"
   ></iframe>
 
   <img
@@ -79,7 +76,6 @@ function Index() {
   />
 
 </div>
-
       {/* Footer */}
       <SiteFooter />
     </div>
