@@ -18,9 +18,9 @@ export function SiteFooter() {
           </div>
           <div className="flex flex-col gap-4 text-sm">
             <span className="mb-2 text-[10px] uppercase tracking-widest text-gold">Contacto</span>
-            <p>Calle de la Seda, 14. Valencia</p>
-            <p>hola@mtom-estetica.com</p>
-            <p>+34 960 000 000</p>
+            <p>Av. del Portal de l’Àngel, 40, Barcelona</p>
+            <p>mtombotiga@gmail.com-estetica.com</p>
+            <p>+34 648 65 38 42</p>
           </div>
           <div className="flex flex-col gap-4 text-sm">
             <span className="mb-2 text-[10px] uppercase tracking-widest text-gold">Legales</span>
