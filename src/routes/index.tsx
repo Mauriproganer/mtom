@@ -63,6 +63,23 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
+{/* UBICACIÓN */}
+<div className="flex flex-wrap justify-center items-center gap-8 px-6 py-12">
+  
+  <iframe
+    src="https://www.google.com/maps?q=Portal+de+l'Angel+40+Barcelona&output=embed"
+    className="w-[500px] h-[300px] rounded-xl border-0"
+    loading="lazy"
+  ></iframe>
+
+  <img
+    src="/local.jpg"
+    alt="Local MtoM"
+    className="w-[500px] h-[300px] object-cover rounded-xl"
+  />
+
+</div>
+
       {/* Footer */}
       <SiteFooter />
     </div>
