@@ -10,11 +10,11 @@ const firebaseConfig = {
   appId: "TU_APP_ID",
 };
 
-// evitar error en Vercel (SSR)
 let app: any;
 
 if (typeof window !== "undefined") {
   app = initializeApp(firebaseConfig);
 }
 
-export const db = typeof window !== "undefined" ? getFirestore(app) : null;
+export const db =
+  typeof window !== "undefined" ? getFirestore(app) : null;
