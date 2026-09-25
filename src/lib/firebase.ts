@@ -10,7 +10,7 @@ const firebaseConfig = {
   appId: "TU_APP_ID",
 };
 
-// 🔥 evitar error en Vercel (SSR)
+// evitar error en Vercel (SSR)
 let app: any;
 
 if (typeof window !== "undefined") {
