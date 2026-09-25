@@ -21,10 +21,11 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
+
   const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 cargar reseñas SOLO en cliente
+  // 🔽 CARGAR RESEÑAS (SOLO CLIENTE)
   useEffect(() => {
     if (typeof window === "undefined" || !db) return;
 
@@ -46,7 +47,7 @@ function Index() {
     loadReviews();
   }, []);
 
-  // 🔄 carrusel
+  // 🔄 CARRUSEL
   useEffect(() => {
     if (reviews.length === 0) return;
 
@@ -57,7 +58,7 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  // ➕ añadir reseña
+  // ➕ AÑADIR RESEÑA
   const addReview = async () => {
     if (typeof window === "undefined" || !db) return;
 
@@ -88,6 +89,8 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
+
+      {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
@@ -108,6 +111,7 @@ function Index() {
               </a>
             ))}
           </div>
+
         </div>
       </nav>
 
@@ -125,6 +129,7 @@ function Index() {
         {reviews.length > 0 && (
           <div className="flex justify-center">
             <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center">
+              
               <p className="text-yellow-500 text-lg">
                 {"★".repeat(reviews[current]?.stars || 5)}
               </p>
@@ -136,6 +141,7 @@ function Index() {
               <p className="mt-4 text-xs text-gray-500">
                 – {reviews[current]?.name}
               </p>
+
             </div>
           </div>
         )}
@@ -157,7 +163,10 @@ function Index() {
             <option value="1">★☆☆☆☆</option>
           </select>
 
-          <button onClick={addReview} className="w-full bg-black text-white py-2 rounded-lg hover:opacity-80">
+          <button
+            onClick={addReview}
+            className="w-full bg-black text-white py-2 rounded-lg hover:opacity-80"
+          >
             Publicar reseña
           </button>
         </div>
