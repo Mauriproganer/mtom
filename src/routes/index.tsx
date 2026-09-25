@@ -24,28 +24,36 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
+  // ⭐ RESEÑAS
+  const [reviews, setReviews] = useState<
+    { name: string; text: string; stars: number }[]
+  >([]);
 
-  // ⭐ RESEÑAS DESDE FIREBASE
-  const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 CARGAR RESEÑAS
+  // 🔽 CARGAR RESEÑAS (SOLO CLIENTE)
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const loadReviews = async () => {
-      const querySnapshot = await getDocs(collection(db, "reviews"));
-      const data: any[] = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "reviews"));
+        const data: any[] = [];
 
-      querySnapshot.forEach((doc) => {
-        data.push(doc.data());
-      });
+        querySnapshot.forEach((doc) => {
+          data.push(doc.data());
+        });
 
-      setReviews(data);
+        setReviews(data);
+      } catch (error) {
+        console.error("Error cargando reseñas:", error);
+      }
     };
 
     loadReviews();
   }, []);
 
-  // 🔄 CARRUSEL AUTO
+  // 🔄 CARRUSEL
   useEffect(() => {
     if (reviews.length === 0) return;
 
@@ -58,35 +66,39 @@ function Index() {
 
   // ➕ AÑADIR RESEÑA
   const addReview = async () => {
+    if (typeof window === "undefined") return;
+
     const nameInput = document.getElementById("name") as HTMLInputElement;
     const textInput = document.getElementById("text") as HTMLTextAreaElement;
     const starsInput = document.getElementById("stars") as HTMLSelectElement;
 
-    const name = nameInput.value;
-    const text = textInput.value;
+    const name = nameInput.value.trim();
+    const text = textInput.value.trim();
     const stars = Number(starsInput.value);
 
-    if (name && text) {
-      const newReview = { name, text, stars };
+    if (!name || !text) return;
 
+    const newReview = { name, text, stars };
+
+    try {
       await addDoc(collection(db, "reviews"), newReview);
 
-      setReviews([...reviews, newReview]);
+      setReviews((prev) => [...prev, newReview]);
 
       // limpiar formulario
       nameInput.value = "";
       textInput.value = "";
       starsInput.value = "5";
+    } catch (error) {
+      console.error("Error guardando reseña:", error);
     }
   };
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
-
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {leftLinks.map((s) => (
               <a key={s.id} href={`#${s.id}`} className="hover:text-gold">
@@ -104,7 +116,6 @@ function Index() {
               </a>
             ))}
           </div>
-
         </div>
       </nav>
 
@@ -121,8 +132,7 @@ function Index() {
 
         {reviews.length > 0 && (
           <div className="flex justify-center">
-            <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center transition-all">
-              
+            <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center">
               <p className="text-yellow-500 text-lg">
                 {"★".repeat(reviews[current]?.stars || 5)}
               </p>
@@ -134,12 +144,11 @@ function Index() {
               <p className="mt-4 text-xs text-gray-500">
                 – {reviews[current]?.name}
               </p>
-
             </div>
           </div>
         )}
 
-        {/* FORMULARIO */}
+        {/* FORM */}
         <div className="mt-12 max-w-md mx-auto bg-white shadow-lg p-6 rounded-xl">
           <h3 className="text-lg font-semibold mb-4 text-center">
             Deja tu reseña
@@ -181,7 +190,6 @@ function Index() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
-
           <iframe
             src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
             className="w-full h-[320px] rounded-xl shadow-lg"
@@ -192,7 +200,6 @@ function Index() {
             alt="Local MtoM"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
-
         </div>
       </section>
 
