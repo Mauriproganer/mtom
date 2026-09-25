@@ -21,7 +21,6 @@ const rightLinks = sections.slice(2);
 
 function Index() {
 
-  // ⭐ RESEÑAS
   const [reviews, setReviews] = useState(() => {
     const saved = localStorage.getItem("reviews");
     return saved
@@ -47,22 +46,29 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews.length]);
 
+  // 🔥 FUNCIÓN CORREGIDA
   const addReview = () => {
-    const name = (document.getElementById("name") as HTMLInputElement).value;
-    const text = (document.getElementById("text") as HTMLTextAreaElement).value;
-    const stars = Number(
-      (document.getElementById("stars") as HTMLSelectElement).value
-    );
+    const nameInput = document.getElementById("name") as HTMLInputElement;
+    const textInput = document.getElementById("text") as HTMLTextAreaElement;
+    const starsInput = document.getElementById("stars") as HTMLSelectElement;
 
-    if (name && text) {
-      setReviews([...reviews, { name, text, stars }]);
-    }
+    const name = nameInput.value.trim();
+    const text = textInput.value.trim();
+    const stars = Number(starsInput.value);
+
+    if (!name || !text) return;
+
+    setReviews([...reviews, { name, text, stars }]);
+
+    // ✅ limpiar formulario
+    nameInput.value = "";
+    textInput.value = "";
+    starsInput.value = "5";
   };
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
 
-      {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
@@ -92,7 +98,7 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
-      {/* ⭐ RESEÑAS PRO */}
+      {/* RESEÑAS */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Opiniones de nuestros clientes
@@ -106,10 +112,7 @@ function Index() {
             }}
           >
             {reviews.map((r, i) => (
-              <div
-                key={i}
-                className="min-w-[300px] bg-white shadow-lg p-6 rounded-2xl"
-              >
+              <div key={i} className="min-w-[300px] bg-white shadow-lg p-6 rounded-2xl">
                 <p className="text-yellow-500 text-lg">
                   {"★".repeat(r.stars)}
                 </p>
@@ -132,17 +135,8 @@ function Index() {
             Deja tu reseña
           </h3>
 
-          <input
-            id="name"
-            placeholder="Tu nombre"
-            className="w-full border p-2 rounded mb-3"
-          />
-
-          <textarea
-            id="text"
-            placeholder="Tu opinión..."
-            className="w-full border p-2 rounded mb-3"
-          ></textarea>
+          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
+          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
@@ -152,23 +146,19 @@ function Index() {
             <option value="1">★☆☆☆☆</option>
           </select>
 
-          <button
-            onClick={addReview}
-            className="w-full bg-black text-white py-2 rounded-lg hover:opacity-80"
-          >
+          <button onClick={addReview} className="w-full bg-black text-white py-2 rounded-lg">
             Publicar reseña
           </button>
         </div>
       </section>
 
-      {/* 📍 UBICACIÓN PRO */}
+      {/* UBICACIÓN */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Nuestra ubicación
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
-
           <iframe
             src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
             className="w-full h-[320px] rounded-xl shadow-lg"
@@ -179,7 +169,6 @@ function Index() {
             alt="Local MtoM"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
-
         </div>
       </section>
 
