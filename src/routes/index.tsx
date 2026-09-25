@@ -14,6 +14,9 @@ import { db } from "@/lib/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [{ title: "M to M Estética — Belleza Mediterránea" }],
+  }),
   component: Index,
 });
 
@@ -21,13 +24,13 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
-
+  // ⭐ ESTADO
   const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 CARGAR RESEÑAS (SOLO CLIENTE)
+  // 🔽 CARGAR RESEÑAS (FIX VERCEL)
   useEffect(() => {
-    if (typeof window === "undefined" || !db) return;
+    if (!db) return;
 
     const loadReviews = async () => {
       try {
@@ -58,9 +61,9 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  // ➕ AÑADIR RESEÑA
+  // ➕ AÑADIR RESEÑA (FIX VERCEL)
   const addReview = async () => {
-    if (typeof window === "undefined" || !db) return;
+    if (!db) return;
 
     const nameInput = document.getElementById("name") as HTMLInputElement;
     const textInput = document.getElementById("text") as HTMLTextAreaElement;
@@ -89,11 +92,9 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
-
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {leftLinks.map((s) => (
               <a key={s.id} href={`#${s.id}`} className="hover:text-gold">
@@ -111,7 +112,6 @@ function Index() {
               </a>
             ))}
           </div>
-
         </div>
       </nav>
 
@@ -129,7 +129,6 @@ function Index() {
         {reviews.length > 0 && (
           <div className="flex justify-center">
             <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center">
-              
               <p className="text-yellow-500 text-lg">
                 {"★".repeat(reviews[current]?.stars || 5)}
               </p>
@@ -141,7 +140,6 @@ function Index() {
               <p className="mt-4 text-xs text-gray-500">
                 – {reviews[current]?.name}
               </p>
-
             </div>
           </div>
         )}
@@ -152,8 +150,17 @@ function Index() {
             Deja tu reseña
           </h3>
 
-          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
-          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
+          <input
+            id="name"
+            placeholder="Tu nombre"
+            className="w-full border p-2 rounded mb-3"
+          />
+
+          <textarea
+            id="text"
+            placeholder="Tu opinión..."
+            className="w-full border p-2 rounded mb-3"
+          ></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
@@ -169,6 +176,26 @@ function Index() {
           >
             Publicar reseña
           </button>
+        </div>
+      </section>
+
+      {/* 📍 UBICACIÓN */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="text-2xl font-semibold text-center mb-8">
+          Nuestra ubicación
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <iframe
+            src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
+            className="w-full h-[320px] rounded-xl shadow-lg"
+          ></iframe>
+
+          <img
+            src="/local.jpg"
+            alt="Local MtoM"
+            className="w-full h-[320px] object-cover rounded-xl shadow-lg"
+          />
         </div>
       </section>
 
