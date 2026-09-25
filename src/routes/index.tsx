@@ -27,7 +27,7 @@ function Index() {
   const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 CARGAR RESEÑAS SOLO EN CLIENTE
+  // 🔽 CARGAR RESEÑAS (FIX VERCEL)
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -85,7 +85,6 @@ function Index() {
       nameInput.value = "";
       textInput.value = "";
       starsInput.value = "5";
-
     } catch (error) {
       console.error("Error guardando reseña:", error);
     }
@@ -150,15 +149,23 @@ function Index() {
           </div>
         )}
 
-        {/* FORM */}
+        {/* FORMULARIO */}
         <div className="mt-12 max-w-md mx-auto bg-white shadow-lg p-6 rounded-xl">
           <h3 className="text-lg font-semibold mb-4 text-center">
             Deja tu reseña
           </h3>
 
-          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
+          <input
+            id="name"
+            placeholder="Tu nombre"
+            className="w-full border p-2 rounded mb-3"
+          />
 
-          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
+          <textarea
+            id="text"
+            placeholder="Tu opinión..."
+            className="w-full border p-2 rounded mb-3"
+          ></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
