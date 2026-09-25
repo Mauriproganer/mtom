@@ -24,14 +24,12 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
-  // ⭐ RESEÑAS
-  const [reviews, setReviews] = useState<
-    { name: string; text: string; stars: number }[]
-  >([]);
 
+  // ⭐ ESTADO
+  const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 CARGAR RESEÑAS (SOLO CLIENTE)
+  // 🔽 CARGAR RESEÑAS (IMPORTANTE PARA VERCEL)
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -85,10 +83,11 @@ function Index() {
 
       setReviews((prev) => [...prev, newReview]);
 
-      // limpiar formulario
+      // limpiar
       nameInput.value = "";
       textInput.value = "";
       starsInput.value = "5";
+
     } catch (error) {
       console.error("Error guardando reseña:", error);
     }
@@ -96,9 +95,11 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
+
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {leftLinks.map((s) => (
               <a key={s.id} href={`#${s.id}`} className="hover:text-gold">
@@ -116,6 +117,7 @@ function Index() {
               </a>
             ))}
           </div>
+
         </div>
       </nav>
 
@@ -133,6 +135,7 @@ function Index() {
         {reviews.length > 0 && (
           <div className="flex justify-center">
             <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center">
+
               <p className="text-yellow-500 text-lg">
                 {"★".repeat(reviews[current]?.stars || 5)}
               </p>
@@ -144,6 +147,7 @@ function Index() {
               <p className="mt-4 text-xs text-gray-500">
                 – {reviews[current]?.name}
               </p>
+
             </div>
           </div>
         )}
@@ -183,13 +187,14 @@ function Index() {
         </div>
       </section>
 
-      {/* 📍 UBICACIÓN */}
+      {/* UBICACIÓN */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Nuestra ubicación
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
+
           <iframe
             src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
             className="w-full h-[320px] rounded-xl shadow-lg"
@@ -200,6 +205,7 @@ function Index() {
             alt="Local MtoM"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
+
         </div>
       </section>
 
