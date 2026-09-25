@@ -3,18 +3,13 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
+  authDomain: "TU_DOMINIO",
   projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_STORAGE_BUCKET",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID",
+  storageBucket: "TU_BUCKET",
+  messagingSenderId: "TU_ID",
+  appId: "TU_APP_ID"
 };
 
-let app: any;
+const app = initializeApp(firebaseConfig);
 
-if (typeof window !== "undefined") {
-  app = initializeApp(firebaseConfig);
-}
-
-export const db =
-  typeof window !== "undefined" ? getFirestore(app) : null;
+export const db = getFirestore(app);
