@@ -24,13 +24,12 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
-  // ⭐ ESTADO
   const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 CARGAR RESEÑAS (FIX VERCEL)
+  // 🔽 CARGAR RESEÑAS SOLO EN CLIENTE
   useEffect(() => {
-    if (!db) return;
+    if (typeof window === "undefined") return;
 
     const loadReviews = async () => {
       try {
@@ -61,9 +60,9 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  // ➕ AÑADIR RESEÑA (FIX VERCEL)
+  // ➕ AÑADIR RESEÑA
   const addReview = async () => {
-    if (!db) return;
+    if (typeof window === "undefined") return;
 
     const nameInput = document.getElementById("name") as HTMLInputElement;
     const textInput = document.getElementById("text") as HTMLTextAreaElement;
@@ -82,9 +81,11 @@ function Index() {
 
       setReviews((prev) => [...prev, newReview]);
 
+      // limpiar formulario
       nameInput.value = "";
       textInput.value = "";
       starsInput.value = "5";
+
     } catch (error) {
       console.error("Error guardando reseña:", error);
     }
@@ -92,9 +93,11 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
+
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {leftLinks.map((s) => (
               <a key={s.id} href={`#${s.id}`} className="hover:text-gold">
@@ -112,6 +115,7 @@ function Index() {
               </a>
             ))}
           </div>
+
         </div>
       </nav>
 
@@ -129,6 +133,7 @@ function Index() {
         {reviews.length > 0 && (
           <div className="flex justify-center">
             <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center">
+
               <p className="text-yellow-500 text-lg">
                 {"★".repeat(reviews[current]?.stars || 5)}
               </p>
@@ -140,6 +145,7 @@ function Index() {
               <p className="mt-4 text-xs text-gray-500">
                 – {reviews[current]?.name}
               </p>
+
             </div>
           </div>
         )}
@@ -150,17 +156,9 @@ function Index() {
             Deja tu reseña
           </h3>
 
-          <input
-            id="name"
-            placeholder="Tu nombre"
-            className="w-full border p-2 rounded mb-3"
-          />
+          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
 
-          <textarea
-            id="text"
-            placeholder="Tu opinión..."
-            className="w-full border p-2 rounded mb-3"
-          ></textarea>
+          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
@@ -186,6 +184,7 @@ function Index() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
+
           <iframe
             src="https://www.google.com/maps?q=Av+del+Portal+de+l'Angel+40+Barcelona&output=embed"
             className="w-full h-[320px] rounded-xl shadow-lg"
@@ -196,6 +195,7 @@ function Index() {
             alt="Local MtoM"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
+
         </div>
       </section>
 
