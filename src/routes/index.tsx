@@ -27,9 +27,9 @@ function Index() {
   const [reviews, setReviews] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
-  // 🔽 CARGAR RESEÑAS (FIX VERCEL)
+  // 🔽 CARGAR RESEÑAS (FIX REAL)
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !db) return;
 
     const loadReviews = async () => {
       try {
@@ -62,7 +62,7 @@ function Index() {
 
   // ➕ AÑADIR RESEÑA
   const addReview = async () => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !db) return;
 
     const nameInput = document.getElementById("name") as HTMLInputElement;
     const textInput = document.getElementById("text") as HTMLTextAreaElement;
@@ -81,7 +81,6 @@ function Index() {
 
       setReviews((prev) => [...prev, newReview]);
 
-      // limpiar formulario
       nameInput.value = "";
       textInput.value = "";
       starsInput.value = "5";
