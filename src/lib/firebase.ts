@@ -10,12 +10,11 @@ const firebaseConfig = {
   appId: "1:787761267311:web:38b8512c36b14a3557039a",
 };
 
-let app = null;
-let db = null;
+let db: any = null;
 
-// SOLO en cliente (evita error en Vercel SSR)
+// SOLO cliente (Vercel fix)
 if (typeof window !== "undefined") {
-  app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
   db = getFirestore(app);
 }
 
