@@ -10,11 +10,10 @@ const firebaseConfig = {
   appId: "1:787761267311:web:38b8512c36b14a3557039a",
 };
 
-let app: any;
+let app;
 
 if (typeof window !== "undefined") {
   app = initializeApp(firebaseConfig);
 }
 
-export const db =
-  typeof window !== "undefined" ? getFirestore(app) : null;
+export const db = app ? getFirestore(app) : null;
