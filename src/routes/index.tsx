@@ -5,15 +5,9 @@ import { CartPanel } from "@/components/cart-panel";
 import { ProductCatalog } from "@/components/product-catalog";
 import { SiteFooter } from "@/components/site-footer";
 import { sections } from "@/lib/products";
-
-// 🔥 CAMBIO IMPORTANTE
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 import { useState, useEffect } from "react";
-
-// 🔥 FIREBASE
-import { db } from "@/lib/firebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,30 +20,15 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
-  const [reviews, setReviews] = useState<any[]>([]);
+  // ⭐ RESEÑAS LOCALES (SIN FIREBASE)
+  const [reviews, setReviews] = useState([
+    { name: "Ana", text: "Me encantó todo 💖", stars: 5 },
+    { name: "Carlos", text: "Muy buen servicio", stars: 4 },
+  ]);
+
   const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !db) return;
-
-    const loadReviews = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "reviews"));
-        const data: any[] = [];
-
-        querySnapshot.forEach((doc) => {
-          data.push(doc.data());
-        });
-
-        setReviews(data);
-      } catch (error) {
-        console.error("Error cargando reseñas:", error);
-      }
-    };
-
-    loadReviews();
-  }, []);
-
+  // 🔄 CARRUSEL
   useEffect(() => {
     if (reviews.length === 0) return;
 
@@ -60,9 +39,8 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  const addReview = async () => {
-    if (typeof window === "undefined" || !db) return;
-
+  // ➕ AÑADIR RESEÑA (LOCAL)
+  const addReview = () => {
     const nameInput = document.getElementById("name") as HTMLInputElement;
     const textInput = document.getElementById("text") as HTMLTextAreaElement;
     const starsInput = document.getElementById("stars") as HTMLSelectElement;
@@ -75,22 +53,17 @@ function Index() {
 
     const newReview = { name, text, stars };
 
-    try {
-      await addDoc(collection(db, "reviews"), newReview);
+    setReviews((prev) => [...prev, newReview]);
 
-      setReviews((prev) => [...prev, newReview]);
-
-      nameInput.value = "";
-      textInput.value = "";
-      starsInput.value = "5";
-    } catch (error) {
-      console.error("Error guardando reseña:", error);
-    }
+    nameInput.value = "";
+    textInput.value = "";
+    starsInput.value = "5";
   };
 
   return (
     <div className="min-h-screen bg-creme font-sans text-taupe">
 
+      {/* NAV */}
       <nav className="sticky top-0 z-50 border-b bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
@@ -102,8 +75,7 @@ function Index() {
             ))}
           </div>
 
-          {/* 🔥 LOGO FIX */}
-          <img src={logo} className="h-14 w-14" />
+          <img src={logoAsset.url} className="h-14 w-14" />
 
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {rightLinks.map((s) => (
@@ -121,6 +93,7 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
+      {/* ⭐ RESEÑAS */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Opiniones de nuestros clientes
@@ -146,14 +119,23 @@ function Index() {
           </div>
         )}
 
+        {/* FORM */}
         <div className="mt-12 max-w-md mx-auto bg-white shadow-lg p-6 rounded-xl">
           <h3 className="text-lg font-semibold mb-4 text-center">
             Deja tu reseña
           </h3>
 
-          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
+          <input
+            id="name"
+            placeholder="Tu nombre"
+            className="w-full border p-2 rounded mb-3"
+          />
 
-          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
+          <textarea
+            id="text"
+            placeholder="Tu opinión..."
+            className="w-full border p-2 rounded mb-3"
+          ></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
@@ -172,6 +154,7 @@ function Index() {
         </div>
       </section>
 
+      {/* UBICACIÓN */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Nuestra ubicación
