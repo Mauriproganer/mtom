@@ -19,20 +19,26 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
+
   const [reviews, setReviews] = useState([
     { name: "Ana", text: "Me encantó todo 💖", stars: 5 },
     { name: "Luis", text: "Muy profesional", stars: 4 },
     { name: "Carla", text: "Volveré sin duda", stars: 5 },
+    { name: "Sofía", text: "Servicio increíble", stars: 5 },
+    { name: "Mario", text: "Muy buena experiencia", stars: 4 },
   ]);
 
   const [current, setCurrent] = useState(0);
 
-  // 🔄 CARRUSEL REAL (DESLIZA)
+  // 🔄 CARRUSEL (3 visibles)
   useEffect(() => {
-    if (reviews.length === 0) return;
+    if (reviews.length <= 3) return;
 
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % reviews.length);
+      setCurrent((prev) => {
+        if (prev >= reviews.length - 3) return 0;
+        return prev + 1;
+      });
     }, 3000);
 
     return () => clearInterval(interval);
@@ -50,7 +56,6 @@ function Index() {
 
     setReviews((prev) => [...prev, newReview]);
 
-    // limpiar
     (document.getElementById("name") as HTMLInputElement).value = "";
     (document.getElementById("text") as HTMLTextAreaElement).value = "";
     (document.getElementById("stars") as HTMLSelectElement).value = "5";
@@ -90,41 +95,38 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
-      {/* ⭐ RESEÑAS GIRATORIAS */}
+      {/* ⭐ RESEÑAS */}
       <section className="max-w-6xl mx-auto px-6 py-20 overflow-hidden">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Opiniones de nuestros clientes
         </h2>
 
-        <div className="relative overflow-hidden">
-
+        <div className="overflow-hidden">
           <div
-            className="flex transition-transform duration-700 ease-in-out"
+            className="flex gap-6 transition-transform duration-700 ease-in-out"
             style={{
-              transform: `translateX(-${current * 100}%)`,
+              transform: `translateX(-${current * 33.33}%)`,
             }}
           >
             {reviews.map((r, i) => (
-              <div key={i} className="min-w-full flex justify-center">
+              <div
+                key={i}
+                className="min-w-[33.33%] bg-white p-6 rounded-xl shadow-lg text-center"
+              >
+                <p className="text-yellow-500 text-lg">
+                  {"★".repeat(r.stars)}
+                </p>
 
-                <div className="w-[320px] bg-white p-6 rounded-xl shadow-lg text-center">
+                <p className="mt-3 text-sm italic">
+                  "{r.text}"
+                </p>
 
-                  <p className="text-yellow-500 text-lg">
-                    {"★".repeat(r.stars)}
-                  </p>
-
-                  <p className="mt-3 text-sm italic">"{r.text}"</p>
-
-                  <p className="mt-4 text-xs text-gray-500">
-                    – {r.name}
-                  </p>
-
-                </div>
-
+                <p className="mt-4 text-xs text-gray-500">
+                  – {r.name}
+                </p>
               </div>
             ))}
           </div>
-
         </div>
 
         {/* FORM */}
@@ -154,7 +156,7 @@ function Index() {
         </div>
       </section>
 
-      {/* UBICACIÓN */}
+      {/* 📍 UBICACIÓN (como antes) */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Nuestra ubicación
