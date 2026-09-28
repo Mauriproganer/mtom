@@ -5,7 +5,6 @@ import { CartPanel } from "@/components/cart-panel";
 import { ProductCatalog } from "@/components/product-catalog";
 import { SiteFooter } from "@/components/site-footer";
 import { sections } from "@/lib/products";
-import logoAsset from "@/assets/logo.png.asset.json";
 
 import { useState, useEffect } from "react";
 
@@ -20,18 +19,15 @@ const leftLinks = sections.slice(0, 2);
 const rightLinks = sections.slice(2);
 
 function Index() {
-  // ⭐ RESEÑAS LOCALES (SIN FIREBASE)
   const [reviews, setReviews] = useState([
     { name: "Ana", text: "Me encantó todo 💖", stars: 5 },
-    { name: "Carlos", text: "Muy buen servicio", stars: 4 },
+    { name: "Luis", text: "Muy profesional", stars: 4 },
   ]);
 
   const [current, setCurrent] = useState(0);
 
-  // 🔄 CARRUSEL
+  // 🔄 ROTACIÓN AUTOMÁTICA
   useEffect(() => {
-    if (reviews.length === 0) return;
-
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % reviews.length);
     }, 3000);
@@ -39,25 +35,22 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  // ➕ AÑADIR RESEÑA (LOCAL)
+  // ➕ AÑADIR RESEÑA
   const addReview = () => {
-    const nameInput = document.getElementById("name") as HTMLInputElement;
-    const textInput = document.getElementById("text") as HTMLTextAreaElement;
-    const starsInput = document.getElementById("stars") as HTMLSelectElement;
-
-    const name = nameInput.value.trim();
-    const text = textInput.value.trim();
-    const stars = Number(starsInput.value);
+    const name = (document.getElementById("name") as HTMLInputElement).value.trim();
+    const text = (document.getElementById("text") as HTMLTextAreaElement).value.trim();
+    const stars = Number((document.getElementById("stars") as HTMLSelectElement).value);
 
     if (!name || !text) return;
 
     const newReview = { name, text, stars };
 
-    setReviews((prev) => [...prev, newReview]);
+    setReviews((prev) => [newReview, ...prev]); // aparece primero
 
-    nameInput.value = "";
-    textInput.value = "";
-    starsInput.value = "5";
+    // limpiar
+    (document.getElementById("name") as HTMLInputElement).value = "";
+    (document.getElementById("text") as HTMLTextAreaElement).value = "";
+    (document.getElementById("stars") as HTMLSelectElement).value = "5";
   };
 
   return (
@@ -75,7 +68,8 @@ function Index() {
             ))}
           </div>
 
-          <img src={logoAsset.url} className="h-14 w-14" />
+          {/* LOGO FIX */}
+          <img src="/logo.png" className="h-14 w-14 object-contain" />
 
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {rightLinks.map((s) => (
@@ -93,31 +87,30 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
-      {/* ⭐ RESEÑAS */}
+      {/* ⭐ RESEÑAS PRO */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Opiniones de nuestros clientes
         </h2>
 
-        {reviews.length > 0 && (
-          <div className="flex justify-center">
-            <div className="w-[320px] bg-white shadow-xl p-6 rounded-2xl text-center">
+        {/* GRID DE 3 RESEÑAS */}
+        <div className="grid md:grid-cols-3 gap-6">
+
+          {reviews.slice(current, current + 3).map((r, i) => (
+            <div key={i} className="bg-white p-6 rounded-xl shadow-lg text-center">
 
               <p className="text-yellow-500 text-lg">
-                {"★".repeat(reviews[current]?.stars || 5)}
+                {"★".repeat(r.stars)}
               </p>
 
-              <p className="mt-3 text-sm italic">
-                "{reviews[current]?.text}"
-              </p>
+              <p className="mt-3 text-sm italic">"{r.text}"</p>
 
-              <p className="mt-4 text-xs text-gray-500">
-                – {reviews[current]?.name}
-              </p>
+              <p className="mt-4 text-xs text-gray-500">– {r.name}</p>
 
             </div>
-          </div>
-        )}
+          ))}
+
+        </div>
 
         {/* FORM */}
         <div className="mt-12 max-w-md mx-auto bg-white shadow-lg p-6 rounded-xl">
@@ -125,17 +118,8 @@ function Index() {
             Deja tu reseña
           </h3>
 
-          <input
-            id="name"
-            placeholder="Tu nombre"
-            className="w-full border p-2 rounded mb-3"
-          />
-
-          <textarea
-            id="text"
-            placeholder="Tu opinión..."
-            className="w-full border p-2 rounded mb-3"
-          ></textarea>
+          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
+          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
@@ -169,7 +153,7 @@ function Index() {
 
           <img
             src="/local.jpg"
-            alt="Local MtoM"
+            alt="Local"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
 
