@@ -22,12 +22,15 @@ function Index() {
   const [reviews, setReviews] = useState([
     { name: "Ana", text: "Me encantó todo 💖", stars: 5 },
     { name: "Luis", text: "Muy profesional", stars: 4 },
+    { name: "Carla", text: "Volveré sin duda", stars: 5 },
   ]);
 
   const [current, setCurrent] = useState(0);
 
-  // 🔄 ROTACIÓN AUTOMÁTICA
+  // 🔄 CARRUSEL REAL (DESLIZA)
   useEffect(() => {
+    if (reviews.length === 0) return;
+
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % reviews.length);
     }, 3000);
@@ -45,7 +48,7 @@ function Index() {
 
     const newReview = { name, text, stars };
 
-    setReviews((prev) => [newReview, ...prev]); // aparece primero
+    setReviews((prev) => [...prev, newReview]);
 
     // limpiar
     (document.getElementById("name") as HTMLInputElement).value = "";
@@ -87,28 +90,40 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
-      {/* ⭐ RESEÑAS PRO */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      {/* ⭐ RESEÑAS GIRATORIAS */}
+      <section className="max-w-6xl mx-auto px-6 py-20 overflow-hidden">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Opiniones de nuestros clientes
         </h2>
 
-        {/* GRID DE 3 RESEÑAS */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="relative overflow-hidden">
 
-          {reviews.slice(current, current + 3).map((r, i) => (
-            <div key={i} className="bg-white p-6 rounded-xl shadow-lg text-center">
+          <div
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{
+              transform: `translateX(-${current * 100}%)`,
+            }}
+          >
+            {reviews.map((r, i) => (
+              <div key={i} className="min-w-full flex justify-center">
 
-              <p className="text-yellow-500 text-lg">
-                {"★".repeat(r.stars)}
-              </p>
+                <div className="w-[320px] bg-white p-6 rounded-xl shadow-lg text-center">
 
-              <p className="mt-3 text-sm italic">"{r.text}"</p>
+                  <p className="text-yellow-500 text-lg">
+                    {"★".repeat(r.stars)}
+                  </p>
 
-              <p className="mt-4 text-xs text-gray-500">– {r.name}</p>
+                  <p className="mt-3 text-sm italic">"{r.text}"</p>
 
-            </div>
-          ))}
+                  <p className="mt-4 text-xs text-gray-500">
+                    – {r.name}
+                  </p>
+
+                </div>
+
+              </div>
+            ))}
+          </div>
 
         </div>
 
@@ -119,6 +134,7 @@ function Index() {
           </h3>
 
           <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
+
           <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
@@ -153,7 +169,7 @@ function Index() {
 
           <img
             src="/local.jpg"
-            alt="Local"
+            alt="Local MtoM"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
 
