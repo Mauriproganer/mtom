@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [{ title: "M to M Estética — Belleza Mediterránea" }],
+    meta: [{ title: "M to M Estètica — Bellesa Mediterrània" }],
   }),
   component: Index,
 });
@@ -21,16 +21,16 @@ const rightLinks = sections.slice(2);
 function Index() {
 
   const [reviews, setReviews] = useState([
-    { name: "Ana", text: "Me encantó todo 💖", stars: 5 },
-    { name: "Luis", text: "Muy profesional", stars: 4 },
-    { name: "Carla", text: "Volveré sin duda", stars: 5 },
-    { name: "Sofía", text: "Servicio increíble", stars: 5 },
-    { name: "Mario", text: "Muy buena experiencia", stars: 4 },
+    { name: "Anna", text: "M'ha encantat tot 💖", stars: 5 },
+    { name: "Lluís", text: "Molt professional", stars: 4 },
+    { name: "Carla", text: "Tornaré segur", stars: 5 },
+    { name: "Sofía", text: "Servei increïble", stars: 5 },
+    { name: "Marc", text: "Experiència molt bona", stars: 4 },
   ]);
 
   const [current, setCurrent] = useState(0);
 
-  // 🔄 CARRUSEL (3 visibles)
+  // carrusel
   useEffect(() => {
     if (reviews.length <= 3) return;
 
@@ -44,7 +44,6 @@ function Index() {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  // ➕ AÑADIR RESEÑA
   const addReview = () => {
     const name = (document.getElementById("name") as HTMLInputElement).value.trim();
     const text = (document.getElementById("text") as HTMLTextAreaElement).value.trim();
@@ -76,8 +75,11 @@ function Index() {
             ))}
           </div>
 
-          {/* LOGO FIX */}
-          <img src="/logo.png" className="h-14 w-14 object-contain" />
+          {/* LOGO CORREGIDO */}
+          <img 
+            src="/ChatGPT_Image_17_de_set._del_2026,_10_42_46.png" 
+            className="h-16 w-auto object-contain"
+          />
 
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {rightLinks.map((s) => (
@@ -95,15 +97,15 @@ function Index() {
       <ProductCatalog />
       <CartPanel />
 
-      {/* ⭐ RESEÑAS */}
-      <section className="max-w-6xl mx-auto px-6 py-20 overflow-hidden">
+      {/* RESEÑES */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-semibold text-center mb-10">
-          Opiniones de nuestros clientes
+          Opinions dels nostres clients
         </h2>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden px-2">
           <div
-            className="flex gap-6 transition-transform duration-700 ease-in-out"
+            className="flex gap-6 transition-transform duration-700"
             style={{
               transform: `translateX(-${current * 33.33}%)`,
             }}
@@ -111,7 +113,7 @@ function Index() {
             {reviews.map((r, i) => (
               <div
                 key={i}
-                className="min-w-[33.33%] bg-white p-6 rounded-xl shadow-lg text-center"
+                className="min-w-[calc(33.33%-16px)] bg-white p-6 rounded-xl shadow-lg text-center"
               >
                 <p className="text-yellow-500 text-lg">
                   {"★".repeat(r.stars)}
@@ -132,12 +134,11 @@ function Index() {
         {/* FORM */}
         <div className="mt-12 max-w-md mx-auto bg-white shadow-lg p-6 rounded-xl">
           <h3 className="text-lg font-semibold mb-4 text-center">
-            Deja tu reseña
+            Deixa la teva ressenya
           </h3>
 
-          <input id="name" placeholder="Tu nombre" className="w-full border p-2 rounded mb-3" />
-
-          <textarea id="text" placeholder="Tu opinión..." className="w-full border p-2 rounded mb-3"></textarea>
+          <input id="name" placeholder="El teu nom" className="w-full border p-2 rounded mb-3" />
+          <textarea id="text" placeholder="La teva opinió..." className="w-full border p-2 rounded mb-3"></textarea>
 
           <select id="stars" className="w-full border p-2 rounded mb-4">
             <option value="5">★★★★★</option>
@@ -151,15 +152,15 @@ function Index() {
             onClick={addReview}
             className="w-full bg-black text-white py-2 rounded-lg hover:opacity-80"
           >
-            Publicar reseña
+            Publicar ressenya
           </button>
         </div>
       </section>
 
-      {/* 📍 UBICACIÓN (como antes) */}
+      {/* UBICACIÓ */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold text-center mb-8">
-          Nuestra ubicación
+          La nostra ubicació
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -171,7 +172,6 @@ function Index() {
 
           <img
             src="/local.jpg"
-            alt="Local MtoM"
             className="w-full h-[320px] object-cover rounded-xl shadow-lg"
           />
 
