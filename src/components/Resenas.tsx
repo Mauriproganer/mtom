@@ -5,15 +5,15 @@ export default function Resenas() {
   const [lista, setLista] = useState<string[]>([]);
 
   useEffect(() => {
-    const guardades = localStorage.getItem("resenas");
-    if (guardades) setLista(JSON.parse(guardades));
+    const guardadas = localStorage.getItem("resenas");
+    if (guardadas) setLista(JSON.parse(guardadas));
   }, []);
 
   const agregar = () => {
     if (!resena) return;
-    const noves = [...lista, resena];
-    setLista(noves);
-    localStorage.setItem("resenas", JSON.stringify(noves));
+    const nuevas = [...lista, resena];
+    setLista(nuevas);
+    localStorage.setItem("resenas", JSON.stringify(nuevas));
     setResena("");
   };
 
