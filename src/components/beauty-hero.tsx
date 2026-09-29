@@ -10,9 +10,6 @@
   Bellesa conscient, fórmules botàniques i rituals inspirats en la llum del Mediterrani.
 </p>
 
-<a
-  href="#coleccions"
-  className="mt-10 inline-flex items-center gap-3 border-b border-taupe pb-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-gold hover:text-gold"
->
+<a href="#colecciones" className="mt-10 inline-flex items-center gap-3 border-b border-taupe pb-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-gold hover:text-gold">
   Explorar productes <ArrowDown className="size-4" aria-hidden="true" />
 </a>
