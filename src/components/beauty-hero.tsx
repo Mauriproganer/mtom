@@ -1,6 +1,4 @@
-<p className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-gold">
-  Estètica mediterrània
-</p>
+<p className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-gold">Estètica mediterrània</p>
 
 <h1 className="font-display text-7xl leading-[0.9] sm:text-8xl lg:text-[9rem]">
   M <span className="font-serif italic tracking-normal text-[0.72em] align-baseline">TO</span> M
