@@ -23,7 +23,7 @@ export function priceToNumber(price: string) {
 }
 
 export function formatPrice(value: number) {
-  return new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(value);
+  return new Intl.NumberFormat("ca-ES", { style: "currency", currency: "EUR" }).format(value);
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
