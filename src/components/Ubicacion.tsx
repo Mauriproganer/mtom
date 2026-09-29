@@ -1,7 +1,7 @@
 export default function Ubicacion() {
   return (
     <div style={{ display: "flex", gap: "20px", padding: "40px" }}>
-
+      
       <iframe
         src="https://www.google.com/maps?q=Portal+de+l'Angel+40+Barcelona&output=embed"
         width="50%"
@@ -12,7 +12,7 @@ export default function Ubicacion() {
 
       <img
         src="/local.jpg"
-        alt="Botiga"
+        alt="Local"
         style={{ width: "50%", objectFit: "cover" }}
       />
     </div>
