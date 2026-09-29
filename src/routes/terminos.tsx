@@ -4,16 +4,16 @@ import { LegalPage, LegalSection } from "@/components/legal-page";
 export const Route = createFileRoute("/terminos")({
   head: () => ({
     meta: [
-      { title: "Términos de Servicio — M to M Estética" },
+      { title: "Termes del Servei — M to M Estètica" },
       {
         name: "description",
         content:
-          "Condiciones generales de compra de M to M Estética: pedidos, precios, pago, entregas y garantías.",
+          "Condicions generals de compra de M to M Estètica: comandes, preus, pagament, lliuraments i garanties.",
       },
-      { property: "og:title", content: "Términos de Servicio — M to M Estética" },
+      { property: "og:title", content: "Termes del Servei — M to M Estètica" },
       {
         property: "og:description",
-        content: "Condiciones generales de compra de M to M Estética.",
+        content: "Condicions generals de compra de M to M Estètica.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -24,85 +24,85 @@ export const Route = createFileRoute("/terminos")({
 
 function Terminos() {
   return (
-    <LegalPage title="Términos de Servicio" updated="20 de septiembre de 2026">
+    <LegalPage title="Termes del Servei" updated="20 de setembre de 2026">
       <p className="text-sm leading-relaxed text-taupe/80">
-        Estas condiciones regulan la compra de productos en la tienda online de M to M Estética. Al
-        realizar un pedido, acepta estas condiciones generales.
+        Aquestes condicions regulen la compra de productes a la botiga en línia de M to M Estètica.
+        En fer una comanda, accepta aquestes condicions generals.
       </p>
 
-      <LegalSection title="1. Datos identificativos">
+      <LegalSection title="1. Dades identificatives">
         <p>
-          M to M Estética, con domicilio en Calle de la Seda, 14, Valencia (España) y correo
-          electrónico hola@mtom-estetica.com.
+          M to M Estètica, amb domicili al Carrer de la Seda, 14, València (Espanya) i correu
+          electrònic hola@mtom-estetica.com.
         </p>
       </LegalSection>
 
-      <LegalSection title="2. Objeto">
+      <LegalSection title="2. Objecte">
         <p>
-          Los presentes términos regulan la compra de productos de cosmética y cuidado personal
-          (colecciones Facial, Pelo, Piel y Corporal) a través de esta tienda online, así como el
-          uso de la misma.
+          Els presents termes regulen la compra de productes de cosmètica i cura personal
+          (col·leccions Facial, Cabell, Pell i Corporal) a través d'aquesta botiga en línia, així
+          com l'ús d'aquesta.
         </p>
       </LegalSection>
 
-      <LegalSection title="3. Pedidos">
+      <LegalSection title="3. Comandes">
         <p>
-          Para realizar un pedido, añada los productos deseados al carrito, complete el formulario
-          de contacto y dirección y confirme la compra. Recibirá una confirmación con el detalle de
-          su pedido. Le rogamos revise cuidadosamente los datos antes de confirmar, ya que no es
-          posible modificar el pedido una vez confirmado; si se equivoca, contáctenos y haremos lo
-          posible por ayudarle.
+          Per fer una comanda, afegeixi els productes desitjats a la cistella, completi el
+          formulari de contacte i adreça i confirmi la compra. Rebrà una confirmació amb el detall
+          de la seva comanda. Li preguem que revisi acuradament les dades abans de confirmar, ja
+          que no és possible modificar la comanda un cop confirmada; si s'equivoca, contacti amb
+          nosaltres i farem tot el possible per ajudar-lo.
         </p>
       </LegalSection>
 
-      <LegalSection title="4. Precios y pago">
+      <LegalSection title="4. Preus i pagament">
         <p>
-          Todos los precios se muestran en euros (€) e incluyen los impuestos aplicables. Los gastos
-          de envío, cuando procedan, se muestran antes de confirmar el pedido.
+          Tots els preus es mostren en euros (€) i inclouen els impostos aplicables. Les despeses
+          d'enviament, quan escaiguin, es mostren abans de confirmar la comanda.
         </p>
         <p>
-          <strong>Importante:</strong> esta tienda es una demostración. El pago se simula con datos
-          ficticios: no se realiza ningún cargo real y no se almacena información de tarjetas.
-          Cuando activemos pagos reales, avisaremos y actualizaremos estas condiciones.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="5. Entrega">
-        <p>
-          Los plazos y zonas de envío, así como la política de gastos de envío, se detallan en
-          nuestra página de <strong>Envíos y Devoluciones</strong>.
+          <strong>Important:</strong> aquesta botiga és una demostració. El pagament se simula amb
+          dades fictícies: no es fa cap càrrec real i no s'emmagatzema informació de targetes.
+          Quan activem pagaments reals, ho avisarem i actualitzarem aquestes condicions.
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Derecho de desistimiento">
+      <LegalSection title="5. Lliurament">
         <p>
-          Dispone de 14 días naturales desde la recepción del pedido para desistir de la compra sin
-          necesidad de justificación. Las condiciones para ejercer este derecho se detallan en
-          nuestra página de <strong>Envíos y Devoluciones</strong>.
+          Els terminis i zones d'enviament, així com la política de despeses d'enviament, es
+          detallen a la nostra pàgina d'<strong>Enviaments i Devolucions</strong>.
         </p>
       </LegalSection>
 
-      <LegalSection title="7. Garantía">
+      <LegalSection title="6. Dret de desistiment">
         <p>
-          Todos nuestros productos cuentan con la garantía legal por falta de conformidad prevista
-          en la normativa española de consumo. Un producto se considera conforme si se ajusta a su
-          descripción y es apto para el uso habitual de este tipo de artículos.
+          Disposa de 14 dies naturals des de la recepció de la comanda per desistir de la compra
+          sense necessitat de justificació. Les condicions per exercir aquest dret es detallen a la
+          nostra pàgina d'<strong>Enviaments i Devolucions</strong>.
         </p>
       </LegalSection>
 
-      <LegalSection title="8. Responsabilidad">
+      <LegalSection title="7. Garantia">
         <p>
-          Nuestros productos son cosméticos de uso tópico. Antes de su uso completo, recomendamos
-          realizar una prueba en una pequeña zona de la piel y leer el modo de uso de cada producto.
-          Si observa alguna reacción, suspenda su uso y consulte a un profesional. Nuestra
-          responsabilidad se limita al importe del producto adquirido.
+          Tots els nostres productes compten amb la garantia legal per manca de conformitat
+          prevista en la normativa espanyola de consum. Un producte es considera conforme si
+          s'ajusta a la seva descripció i és apte per a l'ús habitual d'aquest tipus d'articles.
         </p>
       </LegalSection>
 
-      <LegalSection title="9. Legislación aplicable">
+      <LegalSection title="8. Responsabilitat">
         <p>
-          Estas condiciones se rigen por la legislación española. Para cualquier controversia, las
-          partes se someten a los juzgados y tribunales del domicilio del consumidor.
+          Els nostres productes són cosmètics d'ús tòpic. Abans del seu ús complet, recomanem fer
+          una prova en una petita zona de la pell i llegir el mode d'ús de cada producte. Si
+          observa alguna reacció, suspengui'n l'ús i consulti un professional. La nostra
+          responsabilitat es limita a l'import del producte adquirit.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="9. Legislació aplicable">
+        <p>
+          Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol controvèrsia,
+          les parts se sotmeten als jutjats i tribunals del domicili del consumidor.
         </p>
       </LegalSection>
     </LegalPage>
