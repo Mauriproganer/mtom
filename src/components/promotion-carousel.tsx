@@ -5,24 +5,24 @@ import { sections } from "@/lib/products";
 
 const promotionCopy: Record<string, { title: string; copy: string }> = {
   facial: {
-    title: "Descubre los nuevos rituales faciales",
-    copy: "Fórmulas botánicas que iluminan, hidratan y devuelven a tu rostro su equilibrio natural.",
+    title: "Descobreix els nous rituals facials",
+    copy: "Fórmules botàniques que il·luminen, hidraten i retornen al teu rostre el seu equilibri natural.",
   },
   pelo: {
-    title: "Renueva el cuidado de tu cabello",
-    copy: "Aceites, minerales y extractos mediterráneos para un cabello más fuerte, suave y luminoso.",
+    title: "Renova la cura del teu cabell",
+    copy: "Olis, minerals i extractes mediterranis per a un cabell més fort, suau i lluminós.",
   },
   piel: {
-    title: "Cuida tu piel cada día",
-    copy: "Texturas ligeras y activos esenciales para proteger, calmar y realzar la belleza de tu piel.",
+    title: "Cuida la teva pell cada dia",
+    copy: "Textures lleugeres i actius essencials per protegir, calmar i realçar la bellesa de la teva pell.",
   },
   corporal: {
-    title: "Convierte el cuidado corporal en un ritual",
-    copy: "Un momento de bienestar inspirado en aromas, plantas y minerales de nuestras costas.",
+    title: "Converteix la cura corporal en un ritual",
+    copy: "Un moment de benestar inspirat en aromes, plantes i minerals de les nostres costes.",
   },
   dental: {
-    title: "Descubre la nueva colección dental",
-    copy: "Esenciales naturales para una sonrisa luminosa: blanqueo suave, aliento fresco y encías cuidadas.",
+    title: "Descobreix la nova col·lecció dental",
+    copy: "Essencials naturals per a un somriure lluminós: blanqueig suau, alè fresc i genives ben cuidades.",
   },
 };
 
@@ -59,7 +59,7 @@ export function PromotionCarousel() {
     <section
       className="px-4 py-10 sm:px-6 sm:py-14 lg:py-18"
       aria-roledescription="carrusel"
-      aria-label="Colecciones destacadas"
+      aria-label="Col·leccions destacades"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -109,7 +109,7 @@ export function PromotionCarousel() {
                       variant="ghost"
                       size="icon"
                       onClick={() => move(-1)}
-                      aria-label="Promoción anterior"
+                      aria-label="Promoció anterior"
                       className="absolute left-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-taupe/15 bg-creme/85 text-taupe shadow-none backdrop-blur-sm hover:bg-stone-muted"
                     >
                       <ChevronLeft aria-hidden="true" />
@@ -119,7 +119,7 @@ export function PromotionCarousel() {
                       variant="ghost"
                       size="icon"
                       onClick={() => move(1)}
-                      aria-label="Promoción siguiente"
+                      aria-label="Promoció següent"
                       className="absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-taupe/15 bg-creme/85 text-taupe shadow-none backdrop-blur-sm hover:bg-stone-muted"
                     >
                       <ChevronRight aria-hidden="true" />
@@ -143,7 +143,7 @@ export function PromotionCarousel() {
                   tabIndex={isActive ? 0 : -1}
                   className="mt-8 inline-block border-b border-gold pb-1 text-xs font-medium uppercase tracking-[0.15em] transition-colors hover:text-gold"
                 >
-                  Descubrir colección
+                  Descobrir la col·lecció
                 </a>
               </div>
             </div>
@@ -159,7 +159,7 @@ export function PromotionCarousel() {
                 setActiveIndex(dotIndex);
                 restartTimer();
               }}
-              aria-label={`Ver promoción de ${dotSection.nav}`}
+              aria-label={`Veure la promoció de ${dotSection.nav}`}
               aria-current={dotIndex === activeIndex}
               className={`h-1.5 rounded-full transition-all duration-500 ${
                 dotIndex === activeIndex ? "w-6 bg-gold" : "w-1.5 bg-taupe/25 hover:bg-taupe/40"
@@ -169,7 +169,7 @@ export function PromotionCarousel() {
         </div>
 
         <p className="sr-only" aria-live="polite">
-          Mostrando promoción {activeIndex + 1} de {sections.length}: {section.nav}
+          Mostrant la promoció {activeIndex + 1} de {sections.length}: {section.nav}
         </p>
       </div>
     </section>
