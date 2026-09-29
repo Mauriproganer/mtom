@@ -4,16 +4,16 @@ import { LegalPage, LegalSection } from "@/components/legal-page";
 export const Route = createFileRoute("/privacidad")({
   head: () => ({
     meta: [
-      { title: "Política de Privacidad — M to M Estética" },
+      { title: "Política de Privacitat — M to M Estètica" },
       {
         name: "description",
         content:
-          "Cómo M to M Estética recoge, utiliza y protege sus datos personales, conforme al RGPD y la LOPDGDD.",
+          "Com M to M Estètica recull, utilitza i protegeix les seves dades personals, d'acord amb el RGPD i la LOPDGDD.",
       },
-      { property: "og:title", content: "Política de Privacidad — M to M Estética" },
+      { property: "og:title", content: "Política de Privacitat — M to M Estètica" },
       {
         property: "og:description",
-        content: "Cómo protegemos sus datos personales conforme al RGPD y la LOPDGDD.",
+        content: "Com protegim les seves dades personals d'acord amb el RGPD i la LOPDGDD.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -24,79 +24,82 @@ export const Route = createFileRoute("/privacidad")({
 
 function Privacidad() {
   return (
-    <LegalPage title="Política de Privacidad" updated="20 de septiembre de 2026">
+    <LegalPage title="Política de Privacitat" updated="20 de setembre de 2026">
       <p className="text-sm leading-relaxed text-taupe/80">
-        En M to M Estética respetamos su privacidad y tratamos sus datos personales con la misma
-        dedicación con la que formulamos nuestros productos. Esta política explica qué datos
-        recogemos, con qué finalidad y qué derechos puede ejercer en todo momento.
+        A M to M Estètica respectem la seva privacitat i tractem les seves dades personals amb la
+        mateixa dedicació amb què formulem els nostres productes. Aquesta política explica quines
+        dades recollim, amb quina finalitat i quins drets pot exercir en tot moment.
       </p>
 
-      <LegalSection title="1. Responsable del tratamiento">
+      <LegalSection title="1. Responsable del tractament">
         <p>
-          El responsable del tratamiento de sus datos es M to M Estética, con domicilio en Calle de
-          la Seda, 14, Valencia (España), y correo electrónico de contacto: hola@mtom-estetica.com.
+          El responsable del tractament de les seves dades és M to M Estètica, amb domicili al
+          Carrer de la Seda, 14, València (Espanya), i correu electrònic de contacte:
+          hola@mtom-estetica.com.
         </p>
       </LegalSection>
 
-      <LegalSection title="2. Datos que recogemos">
-        <p>Recogemos únicamente los datos necesarios para atender su pedido y gestionar la relación comercial:</p>
+      <LegalSection title="2. Dades que recollim">
+        <p>Recollim únicament les dades necessàries per atendre la seva comanda i gestionar la relació comercial:</p>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            <strong>Datos de contacto:</strong> nombre, correo electrónico y teléfono.
+            <strong>Dades de contacte:</strong> nom, correu electrònic i telèfon.
           </li>
           <li>
-            <strong>Datos de envío:</strong> dirección postal, ciudad, código postal, provincia y país.
+            <strong>Dades d'enviament:</strong> adreça postal, ciutat, codi postal, província i
+            país.
           </li>
           <li>
-            <strong>Datos de navegación:</strong> información técnica anónima sobre el uso de la web
-            (páginas visitadas, tipo de dispositivo), cuando proceda.
+            <strong>Dades de navegació:</strong> informació tècnica anònima sobre l'ús del web
+            (pàgines visitades, tipus de dispositiu), quan escaigui.
           </li>
         </ul>
         <p>
-          <strong>Nunca almacenamos datos de pago.</strong> Los campos de tarjeta de esta tienda son
-          una simulación de demostración: no procesamos cobros reales ni conservamos números de
-          tarjeta, fechas de caducidad ni códigos CVV.
+          <strong>Mai emmagatzemem dades de pagament.</strong> Els camps de targeta d'aquesta
+          botiga són una simulació de demostració: no processem cobraments reals ni conservem
+          números de targeta, dates de caducitat ni codis CVV.
         </p>
       </LegalSection>
 
-      <LegalSection title="3. Finalidad y base legal">
+      <LegalSection title="3. Finalitat i base legal">
         <p>
-          Tratamos sus datos para gestionar su pedido y su envío (ejecución de contrato), para
-          atender sus consultas y solicitudes de devolución (ejecución de contrato e interés
-          legítimo) y, si nos lo autoriza expresamente, para enviarle novedades y comunicaciones
-          comerciales (su consentimiento, revocable en cualquier momento).
+          Tractem les seves dades per gestionar la seva comanda i el seu enviament (execució de
+          contracte), per atendre les seves consultes i sol·licituds de devolució (execució de
+          contracte i interès legítim) i, si ens ho autoritza expressament, per enviar-li novetats
+          i comunicacions comercials (el seu consentiment, revocable en qualsevol moment).
         </p>
       </LegalSection>
 
-      <LegalSection title="4. Conservación">
+      <LegalSection title="4. Conservació">
         <p>
-          Conservamos sus datos mientras exista una relación comercial o hasta que solicite su
-          supresión, y durante los plazos legales aplicables en materia fiscal y de consumo.
+          Conservem les seves dades mentre existeixi una relació comercial o fins que sol·liciti la
+          seva supressió, i durant els terminis legals aplicables en matèria fiscal i de consum.
         </p>
       </LegalSection>
 
-      <LegalSection title="5. Destinatarios">
+      <LegalSection title="5. Destinataris">
         <p>
-          No cedemos sus datos a terceros salvo obligación legal o cuando sea imprescindible para
-          entregar su pedido (por ejemplo, la empresa de transporte que realiza la entrega).
-          Trabajamos únicamente con encargados que ofrecen garantías suficientes conforme al RGPD.
+          No cedim les seves dades a tercers tret d'obligació legal o quan sigui imprescindible per
+          lliurar la seva comanda (per exemple, l'empresa de transport que fa el lliurament).
+          Treballem únicament amb encarregats que ofereixen garanties suficients d'acord amb el
+          RGPD.
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Sus derechos">
+      <LegalSection title="6. Els seus drets">
         <p>
-          Puede ejercer en cualquier momento sus derechos de acceso, rectificación, supresión,
-          oposición, limitación del tratamiento y portabilidad escribiendo a hola@mtom-estetica.com.
-          Si considera que no hemos atendido correctamente su solicitud, puede presentar una
-          reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).
+          Pot exercir en qualsevol moment els seus drets d'accés, rectificació, supressió,
+          oposició, limitació del tractament i portabilitat escrivint a hola@mtom-estetica.com. Si
+          considera que no hem atès correctament la seva sol·licitud, pot presentar una reclamació
+          davant l'Agència Espanyola de Protecció de Dades (www.aepd.es).
         </p>
       </LegalSection>
 
-      <LegalSection title="7. Seguridad">
+      <LegalSection title="7. Seguretat">
         <p>
-          Aplicamos medidas técnicas y organizativas apropiadas para proteger sus datos contra el
-          acceso no autorizado, la pérdida o la alteración, incluido el cifrado de las comunicaciones
-          y el acceso restringido a la información personal.
+          Apliquem mesures tècniques i organitzatives apropiades per protegir les seves dades
+          contra l'accés no autoritzat, la pèrdua o l'alteració, inclòs el xifratge de les
+          comunicacions i l'accés restringit a la informació personal.
         </p>
       </LegalSection>
     </LegalPage>
