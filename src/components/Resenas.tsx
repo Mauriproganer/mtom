@@ -19,12 +19,12 @@ export default function Resenas() {
 
   return (
     <div style={{ padding: "40px" }}>
-      <h2>Ressenyes de clients</h2>
+      <h2>Reseñas de clientes</h2>
 
       <input
         value={resena}
         onChange={(e) => setResena(e.target.value)}
-        placeholder="Escriu la teva ressenya"
+        placeholder="Escribe tu reseña"
       />
       <button onClick={agregar}>Enviar</button>
 
