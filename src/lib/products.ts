@@ -33,14 +33,14 @@ import dental4 from "@/assets/dental-4.jpg";
 import dental5 from "@/assets/dental-5.jpg";
 import dental6 from "@/assets/dental-6.jpg";
 import dental7 from "@/assets/dental-7.jpg";
- 
+
 export interface Product {
   name: string;
   description: string;
   price: string;
   image: string;
 }
- 
+
 export interface Section {
   id: string;
   nav: string;
@@ -48,7 +48,7 @@ export interface Section {
   number: string;
   products: Product[];
 }
- 
+
 export const sections: Section[] = [
   {
     id: "facial",
@@ -99,10 +99,10 @@ export const sections: Section[] = [
         image: facial7,
       },
       {
-        name: "CeraVe Crema Hidratant",
-        description: "Hidratació de 24 hores amb ceramides i àcid hialurònic.",
-        price: "16,90€",
-        image: "/images/cerave-crema.jpg", // ← CANVIA LA IMATGE: public/images/cerave-crema.jpg
+        name: "CeraVe Loció Hidratant Facial",
+        description: "Hidratació lleugera de 24 hores amb ceramides per a l'ús diari.",
+        price: "15,90€",
+        image: "/images/cerave-locio-facial.jpg", // ← CANVIA LA IMATGE: public/images/cerave-locio-facial.jpg
       },
       {
         name: "The Ordinary Niacinamida 10%",
@@ -111,10 +111,10 @@ export const sections: Section[] = [
         image: "/images/the-ordinary-niacinamida.jpg", // ← CANVIA LA IMATGE: public/images/the-ordinary-niacinamida.jpg
       },
       {
-        name: "Garnier Aigua Micel·lar",
-        description: "Neteja suau i desmaquilla sense irritar, per a tot tipus de pell.",
-        price: "6,95€",
-        image: "/images/garnier-aigua-micellar.jpg", // ← CANVIA LA IMATGE: public/images/garnier-aigua-micellar.jpg
+        name: "Garnier Vitamina C Sèrum SPF 25",
+        description: "Sèrum amb vitamina C i protecció solar SPF 25 per il·luminar el rostre.",
+        price: "14,95€",
+        image: "/images/garnier-vitamina-c.jpg", // ← CANVIA LA IMATGE: public/images/garnier-vitamina-c.jpg
       },
     ],
   },
@@ -167,22 +167,22 @@ export const sections: Section[] = [
         image: pelo7,
       },
       {
-        name: "Pantene Xampú Reparació Intensa",
-        description: "Fortifica la fibra capil·lar i redueix les puntes obertes.",
+        name: "Pantene Xampú Repara i Protegeix",
+        description: "Neteja suaument i repara el cabell danyat, deixant-lo fort i brillant.",
         price: "5,50€",
         image: "/images/pantene-xampu.jpg", // ← CANVIA LA IMATGE: public/images/pantene-xampu.jpg
       },
       {
-        name: "L'Oréal Elvive Mascareta Reparadora",
-        description: "Tractament intensiu que retorna força i brillantor al cabell danyat.",
-        price: "7,95€",
-        image: "/images/loreal-elvive-mascareta.jpg", // ← CANVIA LA IMATGE: public/images/loreal-elvive-mascareta.jpg
+        name: "L'Oréal Elvive Tractament Reparador",
+        description: "Tractament capil·lar que reforça la fibra i aporta brillantor al cabell.",
+        price: "8,95€",
+        image: "/images/loreal-elvive-tractament.jpg", // ← CANVIA LA IMATGE: public/images/loreal-elvive-tractament.jpg
       },
       {
-        name: "Garnier Fructis Condicionador Nutritiu",
-        description: "Desembolica i suavitza el cabell sec amb extractes de fruita.",
-        price: "4,95€",
-        image: "/images/garnier-fructis-condicionador.jpg", // ← CANVIA LA IMATGE: public/images/garnier-fructis-condicionador.jpg
+        name: "Garnier Fructis Hair Bomb Proteïna Mascareta",
+        description: "Mascareta nutritiva amb proteïnes vegetals per a un cabell fort i suau.",
+        price: "6,95€",
+        image: "/images/garnier-fructis-hair-bomb.jpg", // ← CANVIA LA IMATGE: public/images/garnier-fructis-hair-bomb.jpg
       },
     ],
   },
@@ -235,22 +235,22 @@ export const sections: Section[] = [
         image: piel7,
       },
       {
-        name: "Dove Crema de Mans Nutritiva",
-        description: "Hidratació immediata per a mans seques, amb tacte suau i no greixós.",
-        price: "3,95€",
-        image: "/images/dove-crema-mans.jpg", // ← CANVIA LA IMATGE: public/images/dove-crema-mans.jpg
+        name: "Nivea Body Milk Nutritiu",
+        description: "Llet corporal amb oli d'ametlla per a una hidratació intensa i duradora.",
+        price: "6,50€",
+        image: "/images/nivea-body-milk.jpg", // ← CANVIA LA IMATGE: public/images/nivea-body-milk.jpg
       },
       {
-        name: "Nivea Crema Soft",
-        description: "Crema lleugera amb oli de jojoba i vitamina E per a rostre i cos.",
-        price: "4,50€",
-        image: "/images/nivea-crema-soft.jpg", // ← CANVIA LA IMATGE: public/images/nivea-crema-soft.jpg
+        name: "Dove Loció Corporal Hidratant",
+        description: "Loció lleugera de tacte suau que hidrata sense deixar sensació greixosa.",
+        price: "5,50€",
+        image: "/images/dove-locio-corporal.jpg", // ← CANVIA LA IMATGE: public/images/dove-locio-corporal.jpg
       },
       {
-        name: "Vaseline Gelatina de Petroli",
-        description: "Protegeix i repara pell seca, llavis i zones ressecades.",
-        price: "3,90€",
-        image: "/images/vaseline-gelatina.jpg", // ← CANVIA LA IMATGE: public/images/vaseline-gelatina.jpg
+        name: "Vaseline Advanced Repair Loció Corporal",
+        description: "Loció reparadora per a pell seca, amb hidratació intensiva.",
+        price: "5,95€",
+        image: "/images/vaseline-advanced-repair.jpg", // ← CANVIA LA IMATGE: public/images/vaseline-advanced-repair.jpg
       },
     ],
   },
@@ -309,16 +309,16 @@ export const sections: Section[] = [
         image: "/images/dove-gel-dutxa.jpg", // ← CANVIA LA IMATGE: public/images/dove-gel-dutxa.jpg
       },
       {
-        name: "Dehesia Oli Corporal d'Oliva",
-        description: "Oli nutritiu d'absorció ràpida que deixa la pell sedosa.",
+        name: "Dehesia Llet Corporal Natural",
+        description: "Llet corporal natural amb extractes botànics que nodreixen la pell.",
         price: "5,95€",
-        image: "/images/dehesia-oli-corporal.jpg", // ← CANVIA LA IMATGE: public/images/dehesia-oli-corporal.jpg
+        image: "/images/dehesia-locio-corporal.jpg", // ← CANVIA LA IMATGE: public/images/dehesia-locio-corporal.jpg
       },
       {
         name: "Deliplus Loció Corporal Àloe",
         description: "Hidratació diària amb àloe vera, de textura fresca i lleugera.",
         price: "3,50€",
-        image: "/images/deliplus-locio-corporal.jpg", // ← CANVIA LA IMATGE: public/images/deliplus-locio-corporal.jpg
+        image: "/images/deliplus-locio-aloe.jpg", // ← CANVIA LA IMATGE: public/images/deliplus-locio-aloe.jpg
       },
     ],
   },
@@ -371,24 +371,23 @@ export const sections: Section[] = [
         image: dental7,
       },
       {
-        name: "Colgate Total Pasta Dental",
-        description: "Protecció completa 12 hores contra la placa i el mal alè.",
+        name: "Oral-B Pro-Expert Pasta Dental",
+        description: "Protecció professional diària amb fluorur per a unes dents fortes.",
+        price: "4,95€",
+        image: "/images/oral-b-pro-expert.jpg", // ← CANVIA LA IMATGE: public/images/oral-b-pro-expert.jpg
+      },
+      {
+        name: "Colgate Advanced White Pasta Dental",
+        description: "Pasta blanquejadora que elimina les taques superficials.",
         price: "3,95€",
-        image: "/images/colgate-total.jpg", // ← CANVIA LA IMATGE: public/images/colgate-total.jpg
+        image: "/images/colgate-advanced-white.jpg", // ← CANVIA LA IMATGE: public/images/colgate-advanced-white.jpg
       },
       {
-        name: "Oral-B Raspall Elèctric Vitality",
-        description: "Raspall elèctric amb tecnologia rotatòria per a una neteja profunda.",
-        price: "34,90€",
-        image: "/images/oral-b-raspall-electric.jpg", // ← CANVIA LA IMATGE: public/images/oral-b-raspall-electric.jpg
-      },
-      {
-        name: "Listerine Cool Mint Col·lutori",
-        description: "Elimina fins al 99% dels gèrmens i deixa un alè fresc.",
+        name: "Listerine Col·lutori",
+        description: "Col·lutori antisèptic que elimina gèrmens i deixa un alè fresc.",
         price: "6,50€",
-        image: "/images/listerine-cool-mint.jpg", // ← CANVIA LA IMATGE: public/images/listerine-cool-mint.jpg
+        image: "/images/listerine-colutori.jpg", // ← CANVIA LA IMATGE: public/images/listerine-colutori.jpg
       },
     ],
   },
 ];
- 
