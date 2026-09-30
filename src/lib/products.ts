@@ -5,6 +5,9 @@ import facial4 from "@/assets/facial-4.jpg";
 import facial5 from "@/assets/facial-5.jpg";
 import facial6 from "@/assets/facial-6.jpg";
 import facial7 from "@/assets/facial-7.jpg";
+import facial8 from "@/assets/facial-8.jpg";
+import facial9 from "@/assets/facial-9.jpg";
+import facial10 from "@/assets/facial-10.jpg";
 import pelo1 from "@/assets/pelo-1.jpg";
 import pelo2 from "@/assets/pelo-2.jpg";
 import pelo3 from "@/assets/pelo-3.jpg";
@@ -12,6 +15,9 @@ import pelo4 from "@/assets/pelo-4.jpg";
 import pelo5 from "@/assets/pelo-5.jpg";
 import pelo6 from "@/assets/pelo-6.jpg";
 import pelo7 from "@/assets/pelo-7.jpg";
+import pelo8 from "@/assets/pelo-8.jpg";
+import pelo9 from "@/assets/pelo-9.jpg";
+import pelo10 from "@/assets/pelo-10.jpg";
 import piel1 from "@/assets/piel-1.jpg";
 import piel2 from "@/assets/piel-2.jpg";
 import piel3 from "@/assets/piel-3.jpg";
@@ -19,6 +25,9 @@ import piel4 from "@/assets/piel-4.jpg";
 import piel5 from "@/assets/piel-5.jpg";
 import piel6 from "@/assets/piel-6.jpg";
 import piel7 from "@/assets/piel-7.jpg";
+import piel8 from "@/assets/piel-8.jpg";
+import piel9 from "@/assets/piel-9.jpg";
+import piel10 from "@/assets/piel-10.jpg";
 import corporal1 from "@/assets/corporal-1.jpg";
 import corporal2 from "@/assets/corporal-2.jpg";
 import corporal3 from "@/assets/corporal-3.jpg";
@@ -26,6 +35,9 @@ import corporal4 from "@/assets/corporal-4.jpg";
 import corporal5 from "@/assets/corporal-5.jpg";
 import corporal6 from "@/assets/corporal-6.jpg";
 import corporal7 from "@/assets/corporal-7.jpg";
+import corporal8 from "@/assets/corporal-8.jpg";
+import corporal9 from "@/assets/corporal-9.jpg";
+import corporal10 from "@/assets/corporal-10.jpg";
 import dental1 from "@/assets/dental-1.jpg";
 import dental2 from "@/assets/dental-2.jpg";
 import dental3 from "@/assets/dental-3.jpg";
@@ -33,6 +45,9 @@ import dental4 from "@/assets/dental-4.jpg";
 import dental5 from "@/assets/dental-5.jpg";
 import dental6 from "@/assets/dental-6.jpg";
 import dental7 from "@/assets/dental-7.jpg";
+import dental8 from "@/assets/dental-8.jpg";
+import dental9 from "@/assets/dental-9.jpg";
+import dental10 from "@/assets/dental-10.jpg";
 
 export interface Product {
   name: string;
@@ -102,19 +117,19 @@ export const sections: Section[] = [
         name: "CeraVe Loció Hidratant Facial",
         description: "Hidratació lleugera de 24 hores amb ceramides per a l'ús diari.",
         price: "15,90€",
-        image: "/images/cerave-locio-facial.jpg", // ← CANVIA LA IMATGE: public/images/cerave-locio-facial.jpg
+        image: facial8, // ← CANVIA LA IMATGE: src/assets/facial-8.jpg
       },
       {
         name: "The Ordinary Niacinamida 10%",
         description: "Sèrum amb niacinamida i zinc per unificar el to i reduir imperfeccions.",
         price: "7,50€",
-        image: "/images/the-ordinary-niacinamida.jpg", // ← CANVIA LA IMATGE: public/images/the-ordinary-niacinamida.jpg
+        image: facial9, // ← CANVIA LA IMATGE: src/assets/facial-9.jpg
       },
       {
         name: "Garnier Vitamina C Sèrum SPF 25",
         description: "Sèrum amb vitamina C i protecció solar SPF 25 per il·luminar el rostre.",
         price: "14,95€",
-        image: "/images/garnier-vitamina-c.jpg", // ← CANVIA LA IMATGE: public/images/garnier-vitamina-c.jpg
+        image: facial10, // ← CANVIA LA IMATGE: src/assets/facial-10.jpg
       },
     ],
   },
@@ -170,19 +185,19 @@ export const sections: Section[] = [
         name: "Pantene Xampú Repara i Protegeix",
         description: "Neteja suaument i repara el cabell danyat, deixant-lo fort i brillant.",
         price: "5,50€",
-        image: "/images/pantene-xampu.jpg", // ← CANVIA LA IMATGE: public/images/pantene-xampu.jpg
+        image: pelo8, // ← CANVIA LA IMATGE: src/assets/pelo-8.jpg
       },
       {
         name: "L'Oréal Elvive Tractament Reparador",
         description: "Tractament capil·lar que reforça la fibra i aporta brillantor al cabell.",
         price: "8,95€",
-        image: "/images/loreal-elvive-tractament.jpg", // ← CANVIA LA IMATGE: public/images/loreal-elvive-tractament.jpg
+        image: pelo9, // ← CANVIA LA IMATGE: src/assets/pelo-9.jpg
       },
       {
         name: "Garnier Fructis Hair Bomb Proteïna Mascareta",
         description: "Mascareta nutritiva amb proteïnes vegetals per a un cabell fort i suau.",
         price: "6,95€",
-        image: "/images/garnier-fructis-hair-bomb.jpg", // ← CANVIA LA IMATGE: public/images/garnier-fructis-hair-bomb.jpg
+        image: pelo10, // ← CANVIA LA IMATGE: src/assets/pelo-10.jpg
       },
     ],
   },
@@ -238,19 +253,19 @@ export const sections: Section[] = [
         name: "Nivea Body Milk Nutritiu",
         description: "Llet corporal amb oli d'ametlla per a una hidratació intensa i duradora.",
         price: "6,50€",
-        image: "/images/nivea-body-milk.jpg", // ← CANVIA LA IMATGE: public/images/nivea-body-milk.jpg
+        image: piel8, // ← CANVIA LA IMATGE: src/assets/piel-8.jpg
       },
       {
         name: "Dove Loció Corporal Hidratant",
         description: "Loció lleugera de tacte suau que hidrata sense deixar sensació greixosa.",
         price: "5,50€",
-        image: "/images/dove-locio-corporal.jpg", // ← CANVIA LA IMATGE: public/images/dove-locio-corporal.jpg
+        image: piel9, // ← CANVIA LA IMATGE: src/assets/piel-9.jpg
       },
       {
         name: "Vaseline Advanced Repair Loció Corporal",
         description: "Loció reparadora per a pell seca, amb hidratació intensiva.",
         price: "5,95€",
-        image: "/images/vaseline-advanced-repair.jpg", // ← CANVIA LA IMATGE: public/images/vaseline-advanced-repair.jpg
+        image: piel10, // ← CANVIA LA IMATGE: src/assets/piel-10.jpg
       },
     ],
   },
@@ -306,19 +321,19 @@ export const sections: Section[] = [
         name: "Dove Gel de Dutxa Nutritiu",
         description: "Neteja suau amb un quart d'hidratant per a una pell més suau.",
         price: "4,50€",
-        image: "/images/dove-gel-dutxa.jpg", // ← CANVIA LA IMATGE: public/images/dove-gel-dutxa.jpg
+        image: corporal8, // ← CANVIA LA IMATGE: src/assets/corporal-8.jpg
       },
       {
         name: "Dehesia Llet Corporal Natural",
         description: "Llet corporal natural amb extractes botànics que nodreixen la pell.",
         price: "5,95€",
-        image: "/images/dehesia-locio-corporal.jpg", // ← CANVIA LA IMATGE: public/images/dehesia-locio-corporal.jpg
+        image: corporal9, // ← CANVIA LA IMATGE: src/assets/corporal-9.jpg
       },
       {
         name: "Deliplus Loció Corporal Àloe",
         description: "Hidratació diària amb àloe vera, de textura fresca i lleugera.",
         price: "3,50€",
-        image: "/images/deliplus-locio-aloe.jpg", // ← CANVIA LA IMATGE: public/images/deliplus-locio-aloe.jpg
+        image: corporal10, // ← CANVIA LA IMATGE: src/assets/corporal-10.jpg
       },
     ],
   },
@@ -374,19 +389,19 @@ export const sections: Section[] = [
         name: "Oral-B Pro-Expert Pasta Dental",
         description: "Protecció professional diària amb fluorur per a unes dents fortes.",
         price: "4,95€",
-        image: "/images/oral-b-pro-expert.jpg", // ← CANVIA LA IMATGE: public/images/oral-b-pro-expert.jpg
+        image: dental8, // ← CANVIA LA IMATGE: src/assets/dental-8.jpg
       },
       {
         name: "Colgate Advanced White Pasta Dental",
         description: "Pasta blanquejadora que elimina les taques superficials.",
         price: "3,95€",
-        image: "/images/colgate-advanced-white.jpg", // ← CANVIA LA IMATGE: public/images/colgate-advanced-white.jpg
+        image: dental9, // ← CANVIA LA IMATGE: src/assets/dental-9.jpg
       },
       {
         name: "Listerine Col·lutori",
         description: "Col·lutori antisèptic que elimina gèrmens i deixa un alè fresc.",
         price: "6,50€",
-        image: "/images/listerine-colutori.jpg", // ← CANVIA LA IMATGE: public/images/listerine-colutori.jpg
+        image: dental10, // ← CANVIA LA IMATGE: src/assets/dental-10.jpg
       },
     ],
   },
