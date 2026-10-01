@@ -5,6 +5,7 @@ import { CartPanel } from "@/components/cart-panel";
 import { ProductCatalog } from "@/components/product-catalog";
 import { SiteFooter } from "@/components/site-footer";
 import { sections } from "@/lib/products";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 import { useState, useEffect } from "react";
 
@@ -75,11 +76,13 @@ function Index() {
             ))}
           </div>
 
-          {/* LOGO CORREGIDO */}
-          <img 
-            src="/ChatGPT_Image_17_de_set._del_2026,_10_42_46.png" 
-            className="h-16 w-auto object-contain"
-          />
+          <a href="#" className="flex size-16 flex-none items-center justify-center" aria-label="M to M Estètica">
+            <img
+              src={logoAsset.url}
+              alt="M to M Estètica"
+              className="size-16 scale-125 object-contain"
+            />
+          </a>
 
           <div className="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em]">
             {rightLinks.map((s) => (
