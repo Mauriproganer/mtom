@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -8,7 +7,7 @@ export function SiteFooter() {
         <div className="mb-24 grid grid-cols-1 gap-16 lg:grid-cols-3">
           <div>
             <img
-              src={logoAsset.url}
+              src="/logo.png"
               alt="M to M Estètica"
               className="mb-6 h-16 w-16 rounded-full object-contain"
             />
