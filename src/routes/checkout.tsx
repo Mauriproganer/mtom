@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatPrice, priceToNumber, useCart } from "@/lib/cart-context";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
@@ -54,7 +55,7 @@ function CheckoutPage() {
       <header className="border-b border-taupe/10 px-6">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
           <Button asChild variant="ghost" className="px-0 text-xs uppercase tracking-[0.12em]"><Link to="/"><ArrowLeft /> Tornar</Link></Button>
-            <img src="/logo.png" alt="M to M Estètica" className="size-14 object-contain" />
+            <img src={logoAsset.url} alt="M to M Estètica" className="size-14 object-contain" />
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-taupe/50"><LockKeyhole className="size-3.5" /> Segur</div>
         </div>
       </header>

@@ -12,4 +12,3 @@
 - [x] Páginas legales: /privacidad, /terminos y /envios-y-devoluciones con footer compartido
 - [x] Nav: añadir wordmark M TO M junto al logo (portada, legales y checkout)
 - [x] Quinta colección Dental con 7 productos, fichas y promoción en carrusel
-- [x] Corregir el logo superior y añadir la marca a las fotos de producto que no la mostraban.

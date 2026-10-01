@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import logoAsset from "@/assets/logo.png.asset.json";
 import { SiteFooter } from "./site-footer";
 
 export function LegalPage({
@@ -16,7 +17,7 @@ export function LegalPage({
       <nav className="sticky top-0 z-50 border-b border-taupe/5 bg-creme/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <Link to="/" aria-label="Tornar a M to M Estètica" className="flex items-center gap-3">
-            <img src="/logo.png" alt="M to M Estètica" className="h-14 w-14 object-contain" />
+            <img src={logoAsset.url} alt="M to M Estètica" className="h-14 w-14 object-contain" />
           </Link>
           <Link
             to="/"
