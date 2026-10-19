@@ -36,7 +36,7 @@ export function PromotionCarousel() {
     if (!paused) {
       intervalRef.current = setInterval(() => {
         setActiveIndex((current) => (current + 1) % sections.length);
-      }, 8000);
+      }, 5000);
     }
   }, [paused]);
 
@@ -76,7 +76,7 @@ export function PromotionCarousel() {
             <div
               key={slideSection.id}
               aria-hidden={!isActive}
-              className={`grid items-center gap-10 transition-all duration-700 ease-out motion-reduce:transition-none md:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)] lg:gap-16 ${
+              className={`grid items-center gap-10 transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)] lg:gap-16 ${
                 isActive
                   ? "relative opacity-100 translate-y-0"
                   : "pointer-events-none absolute inset-0 py-8 opacity-0 translate-y-3 sm:py-12"
@@ -86,7 +86,7 @@ export function PromotionCarousel() {
                 {slideSection.products.slice(0, 3).map((product, index) => (
                   <div
                     key={product.name}
-                    className={`relative transition-all duration-700 ease-out motion-reduce:transition-none ${
+                    className={`relative transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                       index === 1 ? "z-10" : "opacity-90"
                     } ${isActive ? "translate-y-0" : "translate-y-2"}`}
                     style={{ transitionDelay: isActive ? `${index * 90}ms` : "0ms" }}

@@ -13,3 +13,5 @@
 - [x] Nav: añadir wordmark M TO M junto al logo (portada, legales y checkout)
 - [x] Quinta colección Dental con 7 productos, fichas y promoción en carrusel
 - [x] Subir la resolución de la foto de Dehesia Llet Corporal Natural
+- [x] Giratorio: avanzar cada 5 segundos con fundido más suave
+- [ ] Franja de reseñas bajo el catálogo con estrellas variadas (mayoría 5) deslizándose suavemente
