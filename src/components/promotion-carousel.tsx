@@ -27,7 +27,7 @@ const promotionCopy: Record<string, { title: string; copy: string }> = {
 };
 
 const SLIDE_MS = 800;
-const AUTO_MS = 5000;
+const AUTO_MS = 3000;
 
 const slidesSource = sections.filter((section) => promotionCopy[section.id]);
 
@@ -38,7 +38,6 @@ export function PromotionCarousel() {
 
   const [pos, setPos] = useState(1);
   const [animate, setAnimate] = useState(true);
-  const [paused, setPaused] = useState(false);
   const lockedRef = useRef(false);
 
   const activeIndex = count > 0 ? (((pos - 1) % count) + count) % count : 0;
@@ -83,12 +82,12 @@ export function PromotionCarousel() {
     };
   }, [pos, count]);
 
-  // Autoplay: es reinicia cada vegada que canvia la posició
+  // Autoplay: gira sol cada 3 s (es reinicia si l'usuari canvia manualment)
   useEffect(() => {
-    if (paused || count <= 1) return;
+    if (count <= 1) return;
     const timeout = window.setTimeout(() => move(1), AUTO_MS);
     return () => window.clearTimeout(timeout);
-  }, [paused, pos, count, move]);
+  }, [pos, count, move]);
 
   const section = slidesSource[activeIndex];
   if (!section) return null;
@@ -98,12 +97,6 @@ export function PromotionCarousel() {
       className="px-4 py-10 sm:px-6 sm:py-14 lg:py-18"
       aria-roledescription="carrusel"
       aria-label="Col·leccions destacades"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
-      }}
     >
       <div className="mx-auto max-w-7xl overflow-hidden border-y border-taupe/10 py-8 sm:py-12">
         <div
