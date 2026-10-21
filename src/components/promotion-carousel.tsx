@@ -26,7 +26,7 @@ const promotionCopy: Record<string, { title: string; copy: string }> = {
   },
 };
 
-const SLIDE_MS = 800;
+const SLIDE_MS = 700;
 const AUTO_MS = 3000;
 
 const slidesSource = sections.filter((section) => promotionCopy[section.id]);
@@ -100,12 +100,10 @@ export function PromotionCarousel() {
     >
       <div className="mx-auto max-w-7xl overflow-hidden border-y border-taupe/10 py-8 sm:py-12">
         <div
-          className={`flex will-change-transform ${
-            animate ? "transition-transform ease-[cubic-bezier(0.65,0,0.35,1)] motion-reduce:transition-none" : ""
-          }`}
+          className="flex will-change-transform"
           style={{
             transform: `translate3d(-${pos * 100}%, 0, 0)`,
-            transitionDuration: animate ? `${SLIDE_MS}ms` : "0ms",
+            transition: animate ? `transform ${SLIDE_MS}ms ease-in-out` : "none",
           }}
         >
           {track.map((slideSection, trackIndex) => {
