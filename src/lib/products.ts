@@ -60,7 +60,6 @@ export interface Section {
   id: string;
   nav: string;
   title: string;
-  number: string;
   products: Product[];
 }
 
@@ -69,7 +68,6 @@ export const sections: Section[] = [
     id: "facial",
     nav: "Facial",
     title: "Ritual Facial",
-    number: "01 / 04",
     products: [
       {
         name: "Oli de Figa de Moro",
@@ -137,7 +135,6 @@ export const sections: Section[] = [
     id: "pelo",
     nav: "Cabell",
     title: "Cura Capil·lar",
-    number: "02 / 04",
     products: [
       {
         name: "Xampú de Romaní",
@@ -205,7 +202,6 @@ export const sections: Section[] = [
     id: "piel",
     nav: "Pell",
     title: "Tractaments de Pell",
-    number: "03 / 04",
     products: [
       {
         name: "Bàlsam Relaxant",
@@ -273,7 +269,6 @@ export const sections: Section[] = [
     id: "corporal",
     nav: "Corporal",
     title: "Cura Corporal",
-    number: "04 / 04",
     products: [
       {
         name: "Mantega Mediterrània",
@@ -341,7 +336,6 @@ export const sections: Section[] = [
     id: "dental",
     nav: "Dental",
     title: "Somriure Mediterrani",
-    number: "05 / 05",
     products: [
       {
         name: "Pasta Blanquejadora",
@@ -406,3 +400,10 @@ export const sections: Section[] = [
     ],
   },
 ];
+
+const pad = (value: number) => String(value).padStart(2, "0");
+
+/** "01 / 05" — siempre derivado del número real de colecciones. */
+export function sectionNumber(index: number): string {
+  return `${pad(index + 1)} / ${pad(sections.length)}`;
+}

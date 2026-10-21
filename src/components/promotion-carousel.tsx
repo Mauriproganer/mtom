@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { sections } from "@/lib/products";
+import { sectionNumber, sections } from "@/lib/products";
 
 const promotionCopy: Record<string, { title: string; copy: string }> = {
   facial: {
@@ -130,7 +130,7 @@ export function PromotionCarousel() {
 
               <div className="px-2 text-center md:px-0 md:text-left">
                 <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-gold">
-                  {slideSection.nav} · {slideSection.number}
+                  {slideSection.nav} · {sectionNumber(slideIndex)}
                 </p>
                 <h2 className="text-balance font-serif text-4xl leading-none sm:text-5xl lg:text-6xl">
                   {content.title}
