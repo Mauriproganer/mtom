@@ -33,6 +33,13 @@ export function SiteFooter() {
             <Link to="/envios-y-devoluciones" className="transition-colors hover:text-gold">
               Enviaments i Devolucions
             </Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("mtom-open-cookies"))}
+              className="text-left transition-colors hover:text-gold"
+            >
+              Galetes
+            </button>
           </div>
         </div>
         <div className="flex items-center justify-between border-t border-stone-muted/10 pt-12 text-[10px] uppercase tracking-[0.2em] opacity-40">
