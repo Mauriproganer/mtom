@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart-context";
 import { getProductDetails } from "@/lib/product-details";
-import { sections, type Product } from "@/lib/products";
+import { sectionNumber, sections, type Product } from "@/lib/products";
 
 type SelectedProduct = {
   product: Product;
@@ -41,7 +41,7 @@ export function ProductCatalog() {
         <section key={section.id} id={section.id} className="mx-auto max-w-7xl scroll-mt-24 px-6">
           <div className="mb-10 flex items-end justify-between border-b border-taupe/10 pb-5">
             <div>
-              <p className="mb-2 text-[10px] uppercase tracking-[0.2em] text-gold">Col·lecció {section.number}</p>
+              <p className="mb-2 text-[10px] uppercase tracking-[0.2em] text-gold">Col·lecció {sectionNumber(sectionIndex)}</p>
               <h2 className="font-serif text-4xl italic sm:text-5xl">{section.title}</h2>
             </div>
             <span className="hidden text-xs text-taupe/45 sm:block">

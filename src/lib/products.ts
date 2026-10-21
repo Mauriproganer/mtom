@@ -400,3 +400,10 @@ export const sections: Section[] = [
     ],
   },
 ];
+
+const pad = (value: number) => String(value).padStart(2, "0");
+
+/** "01 / 05" — siempre derivado del número real de colecciones. */
+export function sectionNumber(index: number): string {
+  return `${pad(index + 1)} / ${pad(sections.length)}`;
+}
