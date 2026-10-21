@@ -17,7 +17,7 @@ export function CookieBanner() {
     localStorage.setItem(KEY, JSON.stringify({ value, date: new Date().toISOString() }));
     if (value === "rejected") {
       document.cookie.split(";").forEach((c) => {
-        const name = c.split("=")[0].trim();
+        const name = (c.split("=")[0] ?? "").trim();
         if (name) document.cookie = `${name}=; Max-Age=0; path=/`;
       });
     } else {
