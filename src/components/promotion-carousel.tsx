@@ -34,7 +34,7 @@ const slidesSource = sections.filter((section) => promotionCopy[section.id]);
 export function PromotionCarousel() {
   const count = slidesSource.length;
   // Pista: [clon de l'últim, ...diapositives, clon del primer] -> bucle infinit sense salts
-  const track: Section[] = count > 0 ? [slidesSource[count - 1]!, ...slidesSource, slidesSource[0]!] : [];
+  const track: (typeof slidesSource)[number][] = count > 0 ? [slidesSource[count - 1]!, ...slidesSource, slidesSource[0]!] : [];
 
   const [pos, setPos] = useState(1);
   const [animate, setAnimate] = useState(true);
