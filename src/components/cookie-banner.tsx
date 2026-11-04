@@ -8,9 +8,6 @@ export function CookieBanner() {
 
   useEffect(() => {
     if (!localStorage.getItem(KEY)) setVisible(true);
-    const open = () => setVisible(true);
-    window.addEventListener("mtom-open-cookies", open);
-    return () => window.removeEventListener("mtom-open-cookies", open);
   }, []);
 
   const choose = (value: "accepted" | "rejected") => {
